@@ -1,0 +1,244 @@
+{% extends '_userbase.html' %}  
+
+{% block title %} Dashboard {% endblock title %}
+
+
+{% block breadcrumb_path %} <span class="text-gray-500">/</span>&nbsp;&nbsp;&nbsp;Dashbord {% endblock breadcrumb_path %}
+{% block breadcrumb_title %} Dashbord {% endblock breadcrumb_title %}
+
+
+
+{% block body %}
+
+<div class=" grid md:grid-cols-4 sm:grid-cols-2  gap-5 my-5">
+
+
+    {% comment %} USER DATA {% endcomment %}
+    <div class='relative p-5 w-full rounded-2xl  bg-slate-800 drop-shadow-2xl mt-5'>
+        <div class='absolute -top-4 left-4 shadow-2xl bg-[#1F2937] rounded-2xl h-16 w-16 flex items-center justify-center drop-shadow-2xl'>
+            <span class="material-symbols-outlined text-white">
+                chair
+            </span>
+        </div>
+        <div class="flex flex-col ">
+            <div class="flex justify-between">
+                <div>
+                    
+                </div>
+                <div>
+                    <span class="text-white font-light text-md">Total Users</span>
+                    <h1 class='block uppercase text-white font-bold text-2xl text-right'>
+                        {{ user.total_users }}
+                    </h1>
+                </div>
+            </div>
+            <span class='text-white font-md text-md'>
+                <hr class="border-bottom my-2">
+                <span class="text-white-600"><span class="text-green-600">+55%</span> than lask week</span>
+            </span>
+        </div>
+    </div>
+    <div class='relative p-5 w-full rounded-2xl bg-slate-800 drop-shadow-2xl mt-5'>
+        <div class='absolute -top-4 left-4 shadow-2xl bg-rose-600 rounded-2xl h-16 w-16 flex items-center justify-center drop-shadow-2xl'>
+            <span class="material-symbols-outlined text-white">
+                person_add
+            </span>
+        </div>
+        <div class="flex flex-col ">
+            <div class="flex justify-between">
+                <div>
+                    
+                </div>
+                <div>
+                    <span class="text-white font-light text-md">Pending Users</span>
+                    <h1 class='block uppercase text-white font-bold text-2xl text-right'>
+                        {{ user.pending_users }}
+                    </h1>
+                </div>
+            </div>
+            <span class='text-white font-md text-md'>
+                <hr class="border-bottom my-2">
+                <span class="text-white-600"><span class="text-green-600">+55%</span> than lask week</span>
+            </span>
+        </div>
+    </div>
+    <div class='relative p-5 w-full rounded-2xl bg-slate-800 drop-shadow-2xl mt-5'>
+        <div class='absolute -top-4 left-4 shadow-2xl bg-blue-600 rounded-2xl h-16 w-16 flex items-center justify-center drop-shadow-2xl'>
+            <span class="material-symbols-outlined text-white">
+                equalizer
+            </span>
+        </div>
+        <div class="flex flex-col ">
+            <div class="flex justify-between">
+                <div>
+                    
+                </div>
+                <div>
+                    <span class="text-white font-light text-md">Rejected Users</span>
+                    <h1 class='block uppercase text-white font-bold text-2xl text-right'>
+                        {{ user.rejected_users }}
+                    </h1>
+                </div>
+            </div>
+            <span class='text-white font-md text-md'>
+                <hr class="border-bottom my-2">
+                <span class="text-white-600"><span class="text-green-600">+55%</span> than lask week</span>
+            </span>
+        </div>
+    </div>
+    <div class='relative p-5 w-full rounded-2xl bg-slate-800 drop-shadow-2xl mt-5'>
+        <div class='absolute -top-4 left-4 shadow-2xl bg-green-600 rounded-2xl h-16 w-16 flex items-center justify-center drop-shadow-2xl'>
+            <span class="material-symbols-outlined text-white">
+                store
+            </span>
+        </div>
+        <div class="flex flex-col ">
+            <div class="flex justify-between">
+                <div>
+                    
+                </div>
+                <div>
+                    <span class="text-white font-light text-md">Approved Users</span>
+                    <h1 class='block uppercase text-white font-bold text-2xl text-right'>
+                        {{ user.approved_users }}
+                    </h1>
+                </div>
+            </div>
+            <span class='text-white font-md text-md'>
+                <hr class="border-bottom my-2">
+                <span class="text-white-600"><span class="text-green-600">+55%</span> than lask week</span>
+            </span>
+        </div>
+    </div>
+    
+    
+
+    {% comment %} SHOPS DATA {% endcomment %}
+    <div class='relative p-5 w-full rounded-2xl  bg-slate-800 drop-shadow-2xl mt-5'>
+        <div class='absolute -top-4 left-4 shadow-2xl bg-[#1F2937] rounded-2xl h-16 w-16 flex items-center justify-center drop-shadow-2xl'>
+            <span class="material-symbols-outlined text-white">
+                chair
+            </span>
+        </div>
+        <div class="flex flex-col ">
+            <div class="flex justify-between">
+                <div>
+                    
+                </div>
+                <div>
+                    <span class=" text-white font-medium text-md">Total Shops</span>
+                    <h1 class='block uppercase text-white font-bold text-2xl text-right'>
+                        {{ shop.total_shops }}
+                    </h1>
+                </div>
+            </div>
+            <span class='text-white font-md text-md'>
+                <hr class="border-bottom my-2">
+                <span class="text-white-600"><span class="text-green-600">+55%</span> than lask week</span>
+            </span>
+        </div>
+    </div>
+    <div class='relative p-5 w-full rounded-2xl bg-slate-800 drop-shadow-2xl mt-5'>
+        <div class='absolute -top-4 left-4 shadow-2xl bg-rose-600 rounded-2xl h-16 w-16 flex items-center justify-center drop-shadow-2xl'>
+            <span class="material-symbols-outlined text-white">
+                person_add
+            </span>
+        </div>
+        <div class="flex flex-col ">
+            <div class="flex justify-between">
+                <div>
+                    
+                </div>
+                <div>
+                    <span class=" text-white font-medium text-md">Pending Shops</span>
+                    <h1 class='block uppercase text-white font-bold text-2xl text-right'>
+                        {{ shop.pending_shops }}
+                    </h1>
+                </div>
+            </div>
+            <span class='text-white font-md text-md'>
+                <hr class="border-bottom my-2">
+                <span class="text-white-600"><span class="text-green-600">+55%</span> than lask week</span>
+            </span>
+        </div>
+    </div>
+    <div class='relative p-5 w-full rounded-2xl bg-slate-800 drop-shadow-2xl mt-5'>
+        <div class='absolute -top-4 left-4 shadow-2xl bg-blue-600 rounded-2xl h-16 w-16 flex items-center justify-center drop-shadow-2xl'>
+            <span class="material-symbols-outlined text-white">
+                equalizer
+            </span>
+        </div>
+        <div class="flex flex-col ">
+            <div class="flex justify-between">
+                <div>
+                    
+                </div>
+                <div>
+                    <span class=" text-white font-medium text-md">Rejected Shops</span>
+                    <h1 class='block uppercase text-white font-bold text-2xl text-right'>
+                        {{ shop.rejected_shops }}
+                    </h1>
+                </div>
+            </div>
+            <span class='text-white font-md text-md'>
+                <hr class="border-bottom my-2">
+                <span class="text-white-600"><span class="text-green-600">+55%</span> than lask week</span>
+            </span>
+        </div>
+    </div>
+    <div class='relative p-5 w-full rounded-2xl bg-slate-800 drop-shadow-2xl mt-5'>
+        <div class='absolute -top-4 left-4 shadow-2xl bg-green-600 rounded-2xl h-16 w-16 flex items-center justify-center drop-shadow-2xl'>
+            <span class="material-symbols-outlined text-white">
+                store
+            </span>
+        </div>
+        <div class="flex flex-col ">
+            <div class="flex justify-between">
+                <div>
+                    
+                </div>
+                <div>
+                    <span class=" text-white font-medium text-md">Approved Shops</span>
+                    <h1 class='block uppercase text-white font-bold text-2xl text-right'>
+                        {{ shop.approved_shops }}
+                    </h1>
+                </div>
+            </div>
+            <span class='text-white font-md text-md'>
+                <hr class="border-bottom my-2">
+                <span class="text-white-600"><span class="text-green-600">+55%</span> than lask week</span>
+            </span>
+        </div>
+    </div>  
+
+
+    {% comment %} QUERIES {% endcomment %}
+    <div class='relative p-5 w-full rounded-2xl bg-slate-800 drop-shadow-2xl mt-5'>
+        <div class='absolute -top-4 left-4 shadow-2xl bg-green-600 rounded-2xl h-16 w-16 flex items-center justify-center drop-shadow-2xl'>
+            <span class="material-symbols-outlined text-white">
+                help_center
+            </span>
+        </div>
+        <div class="flex flex-col ">
+            <div class="flex justify-between">
+                <div>
+                    
+                </div>
+                <div>
+                    <span class=" text-white font-medium text-md">Total Queries</span>
+                    <h1 class='block uppercase text-white font-bold text-2xl text-right'>
+                        {{ query.total_query }}
+                    </h1>
+                </div>
+            </div>
+            <span class='text-white font-md text-md'>
+                <hr class="border-bottom my-2">
+                <span class="text-white-600"><span class="text-green-600">+55%</span> than lask week</span>
+            </span>
+        </div>
+    </div>  
+    
+</div>
+
+
+{% endblock body %}
