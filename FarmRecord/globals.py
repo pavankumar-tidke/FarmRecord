@@ -9,6 +9,17 @@ class GLOBALS :
     session_name = 'user_session_details' 
     admin_session_name = 'admin_details'
     
+
+    ''' RANDOM GENERATOR '''
+    # andom ID generator
+    def randID(self) : 
+        try:
+            id_length = 10
+            characters = string.ascii_uppercase + string.ascii_lowercase + string.digits
+            id = ''.join(random.choice(characters) for _ in range(id_length))
+            return id
+        except Exception as e:
+            print(f'An exception occurred -- {e}')
     
     
     ''' SESSION HANDLING '''

@@ -1,62 +1,4 @@
-
-console.log(screen.width);
-
-if (screen.width < 768) { 
-  $('.sidebar').toggle(); 
-  $('.hero').toggleClass('ml-64');
-  // document.body.style.backgroundColor = 'white'; 
-
-} else { 
-  $('.bottom-nav').hide();
-  
-}
-
-
-if (window.location.pathname.startsWith("/_m_")) {
-  document.body.style.backgroundColor = "white"; 
-  $(`.breadcrumb, .sidebar`).hide();
-}
-
- 
-
-//** page loading**/
-$(window).on('load', function() {
-  $('.loading').hide();
-})
-
-//** SIDEBAR toggle **/
-$('#sidebar-toggle-button').click(function() {
-  $('.sidebar').toggle(); 
-  $('.hero').toggleClass('ml-72'); 
-})
-
-//** THEME CHANGER **/ 
-$('.theme-toggle-button').click(function() {
-  $('body, body *').toggleClass('text-gray-900');  
-  $('body, body *').toggleClass('bg-white');
-})
-
-$('._m_theme-toggle-button').click(function() {
-     
-})
-
- 
-
-//** MOBILE VIEW REDIRECTOR **//
-function redirectToMobileUrl(event, mobileUrl) {
-  var mobileThreshold = 768;
-
-  // Check if the current width is less than the mobile threshold
-  if (window.innerWidth < mobileThreshold) {
-    event.preventDefault(); 
-    window.location.href = mobileUrl; 
-  }
-}
-
-
-
-
-
+toastMessage('loaded !', 'success');
 
 //******************************* GLOBAL FUNCTIONS ************************************/ 
 
@@ -98,6 +40,27 @@ function getCookie(name) {
     toastMessage("Cookie error", "danger")
   }
 }
+
+/**
+ * get current time 
+ **/
+function currentTime() {
+  let date = new Date();
+  let options = {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+    hour: '2-digit',
+    minute: '2-digit',
+    second: '2-digit',
+    hour12: false
+  };
+
+  return date.toLocaleString(undefined, options);
+  
+}
+
+
 
 
 /**
@@ -191,7 +154,7 @@ var types = {
  **/
 function toastMessage(message='message_not_given', type='yellow', id=rnum()) {
   try {
-    let a = `<div id="toast-id-${id}" class="toast-msg z-50   fixed top-5 right-5 drop-shadow-lg flex items-center w-full max-w-xs p-4 rounded-lg shadow text-gray-400 bg-slate-800" role="alert">
+    let a = `<div id="toast-id-${id}" class="toast-msg z-50 fixed top-5 right-5 shadow-lg shadow-sky-300 flex items-center w-full max-w-xs p-4 rounded-lg shadow text-gray-400 bg-slate-200 dark:bg-slate-800" role="alert">
               ${icons[type]}
             <div class="ml-3 text-sm text-${types[type]}-500 font-bold">${message}.</div> 
           </div>`;
@@ -199,7 +162,7 @@ function toastMessage(message='message_not_given', type='yellow', id=rnum()) {
     // $('#toast-').show() 
     setTimeout(() => {
       $(`#toast-id-${id}`).remove().animate();
-    }, 3000)
+    }, 4000)
   } catch (error) {
     return `Following exception found while showing alert. ==>  ${error}`;
   }

@@ -3,12 +3,16 @@
 {% block title %} Dashboard {% endblock title %}
 
 
-{% block breadcrumb_path %} <span class="text-gray-500">/</span>&nbsp;&nbsp;&nbsp;Dashbord {% endblock breadcrumb_path %}
-{% block breadcrumb_title %} Dashbord {% endblock breadcrumb_title %}
+{% block userbreadcrumb_path %} 
+    
+    &nbsp;&nbsp;
+    <span class="text-slate-400">/</span>
+    <span class="text-slate-900 dark:text-white">Dashbord</span>
+{% endblock userbreadcrumb_path %} 
 
 
 
-{% block body %}
+{% block userbody %}
 
 <div class=" grid md:grid-cols-4 sm:grid-cols-2  gap-5 my-5">
 
@@ -241,4 +245,4 @@
 </div>
 
 
-{% endblock body %}
+{% endblock userbody %}
