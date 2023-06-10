@@ -1,5 +1,11 @@
+  
 
 
-
+django 
+faker
+psycopg2
+argon2-cffi
+Pillow 
+numpy
 python-dotenv
-
+django-cors-headers
