@@ -81,13 +81,20 @@ WSGI_APPLICATION = 'FarmRecord.wsgi.application'
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
 DATABASES = {
+    # 'default': {
+    #     'ENGINE': 'django.db.backends.postgresql',
+    #     'NAME': 'FarmRecord',
+    #     'USER': 'postgres',
+    #     'PASSWORD': 'pgadmin',
+    #     'HOST': 'localhost',  
+    # },
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'FarmRecord',
+        'NAME': 'railway',
         'USER': 'postgres',
-        'PASSWORD': 'pgadmin',
-        'HOST': 'localhost', 
-        # 'HOST': 'testp.feelyprivacy.com', 
+        'PASSWORD': 'HKQmgN1wwMoPnkWGICqx',
+        'HOST': 'containers-us-west-150.railway.app',  
+        'PORT': '5526',
     }
 }
 
