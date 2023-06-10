@@ -70,8 +70,8 @@ def save_work(request) :
     
 
 
-
-
+# write a function to save the work details in the database.
+ 
 
 
 
