@@ -81,22 +81,36 @@ WSGI_APPLICATION = 'FarmRecord.wsgi.application'
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
 DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'FarmRecord',
+        'USER': 'postgres',
+        'PASSWORD': 'pgadmin',
+        'HOST': 'localhost',   
+    },
+    # 'default': {
+    #     'ENGINE': 'django.db.backends.postgresql',
+    #     'NAME': 'railway',
+    #     'USER': 'postgres',
+    #     'PASSWORD': 'HKQmgN1wwMoPnkWGICqx',
+    #     'HOST': 'containers-us-west-150.railway.app',  
+    #     'PORT': '5526',
+    # },
     # 'default': {
     #     'ENGINE': 'django.db.backends.postgresql',
     #     'NAME': 'FarmRecord',
-    #     'USER': 'postgres',
-    #     'PASSWORD': 'pgadmin',
-    #     'HOST': 'localhost',  
-    # },
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'railway',
-        'USER': 'postgres',
-        'PASSWORD': 'HKQmgN1wwMoPnkWGICqx',
-        'HOST': 'containers-us-west-150.railway.app',  
-        'PORT': '5526',
-    }
+    #     'USER': 'QWmQx3v',
+    #     'PASSWORD': 'wXnq1xaxwVDgbyJpGz0l',
+    #     'HOST': 'farmrecord.cuzm48tnc7bo.ap-south-1.rds.amazonaws.com',  
+    #     'PORT': '5432',
+    # }
 }
+
+# u - QWmQx3v
+# wXnq1xaxwVDgbyJpGz0l
+# farmrecord.cuzm48tnc7bo.ap-south-1.rds.amazonaws.com
+ 
+#  "postgres://default:BYa3nZ0smwcu@ep-floral-salad-212101.us-east-1.postgres.vercel-storage.com:5432/verceldb"
 
 
 # Password validation
