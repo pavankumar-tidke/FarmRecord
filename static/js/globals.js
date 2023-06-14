@@ -155,9 +155,9 @@ var types = {
 function toastMessage(message='message_not_given', type='red', id=rnum()) {
   try {
     let a = `
-            <div id="toast-id-${id}" class="toast-msg z-[99999] border border-gray-200 dark:border-gray-700 fixed top-5 right-4 shadow-lg shadow-slate-200 dark:shadow-md dark:shadow-slate-100/25 flex items-center max-w-xs px-2 py-3 rounded-lg shadow text-gray-400 bg-sky-50 dark:bg-slate-800" role="alert">
+            <div id="toast-id-${id}" class="toast-msg z-[99999] border border-gray-200 dark:border-gray-700 fixed top-5 right-4 shadow-lg shadow-slate-200 dark:shadow-md dark:shadow-slate-100/25 flex items-center max-w-xs px-2 py-2 rounded-lg shadow text-gray-400 bg-sky-50 dark:bg-slate-800" role="alert">
                 ${icons[type]}
-              <div class="ml-3 text-base text-slate-900 dark:text-white font-semibold">${message}.</div> 
+              <div class="ml-3 text-sm text-slate-900 dark:text-white font-semibold">${message}.</div> 
             </div> 
           `;
     $('.alert').append(a).animate();
