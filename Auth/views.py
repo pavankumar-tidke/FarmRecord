@@ -37,20 +37,22 @@ def authenticate_user(request) :
         email = request.POST.get('email')
         
         if request.POST.get('operation')  == 'signup' :  
-            name = request.POST.get('name')    
-            hash = ph.hash(request.POST.get('password'))  
 
             # searching username from the PostgreSQl DB
             if User.objects.filter(email=email).exists() == False :      
+
+                # user signup logic
+                name = request.POST.get('name')    
+                hash = ph.hash(request.POST.get('password'))  
                 
                 ## inserting the data in our postgresql DB  ##
                 User.objects.create(name=name, email=email, password=hash).save() 
                 user = User.objects.get(email=email)
                 g.setUserSession(request, g.session_name, {'id': user.id, 'name': user.name, 'email': user.email})
-                return HttpResponse(json.dumps({'success': True, 'errorMsg': False, 'error': False, 'data': {'alertMsg': 'Account Created !', 'redirect_url': '/'}}))
+                return HttpResponse(json.dumps({'success': True, 'data': {'alertMsg': 'Account Created !', 'redirect_url': '/'}}))
 
             else :
-                return HttpResponse(json.dumps({'success': False, 'errorMsg': 'Email Exists !', 'error': True, 'data': None}))
+                return HttpResponse(json.dumps({'success': False, 'data': {'alertMsg': 'This email is alread exists, Use different email !'}}))
         
         else:  
             # user login logic   
@@ -62,20 +64,21 @@ def authenticate_user(request) :
                     g.setUserSession(request, g.session_name, {'id': user.id, 'name': user.name, 'email': user.email})
                     return HttpResponse(json.dumps({'success': True, 'errorMsg': False, 'error': False, 'data': {'alertMsg': 'qweqr', 'redirect_url': '/'}}))                    
                 else :
-                    return HttpResponse(json.dumps({'success': False, 'errorMsg': 'Invalid Credentials1 !', 'data': {'alertMsg': 'Invalid Credentials11 !', 'redirect_url': None}}))
+                    return HttpResponse(json.dumps({'success': False, 'data': {'alertMsg': "Wrong 'email' or 'password' !", 'redirect_url': None}}))
             else : 
-                return HttpResponse(json.dumps({'success': False, 'errorMsg': 'Invalid Credentials2 !', 'data': {'alertMsg': 'Invalid Credentials 22!', 'redirect_url': None}})) 
+                return HttpResponse(json.dumps({'success': False, 'data': {'alertMsg': "Wrong 'email' or 'password' !", 'redirect_url': None}})) 
     
     except VerifyMismatchError as VerifyMissMatch:  
-        return HttpResponse(json.dumps({'success': False, 'errorMsg': 'Invalid Credentials3', 'data': {'alertMsg': 'Invalid Credentials', 'redirect_url': None}}))   
+        return HttpResponse(json.dumps({'success': False, 'data': {'alertMsg': 'Invalid Credentials', 'redirect_url': None}}))   
     except NameError as nameError: 
-        return HttpResponse(json.dumps({'success': False, 'errorMsg': 'nameError', 'data': {'alertMsg': 'nameError', 'redirect_url': None}}))  
+        return HttpResponse(json.dumps({'success': False, 'data': {'alertMsg': 'nameError', 'redirect_url': None}}))  
     except TypeError as typeError: 
-        return HttpResponse(json.dumps({'success': False, 'errorMsg': 'typeError', 'data': {'alertMsg': 'typeError', 'redirect_url': None}}))  
+        return HttpResponse(json.dumps({'success': False, 'data': {'alertMsg': 'typeError', 'redirect_url': None}}))  
     except ValueError as valueError:  
-        return HttpResponse(json.dumps({'success': False, 'errorMsg': 'valueError', 'data': {'alertMsg': 'valueError', 'redirect_url': None}}))          
+        return HttpResponse(json.dumps({'success': False, 'data': {'alertMsg': 'valueError', 'redirect_url': None}}))          
     except Exception as ise:  
-        return HttpResponse(json.dumps({'success': False, 'errorMsg': ise, 'data': {'alertMsg': ise, 'redirect_url': None}}))   
+        print('Auth Excp :- ', ise)
+        return HttpResponse(json.dumps({'success': False, 'data': {'alertMsg': 'Excp', 'redirect_url': None}}))   
 
 
 
@@ -122,12 +125,12 @@ def admin_authenticate(request) :
                     g.setUserSession(request, g.admin_session_name, {'id': user.id, 'name': user.name, 'email': user.email})
                     return HttpResponse(json.dumps({'success': True, 'errorMsg': False, 'error': False, 'data': {'alertMsg': 'qweqr', 'redirect_url': '/a'}}))                    
                 else :
-                    return HttpResponse(json.dumps({'success': False, 'errorMsg': 'Invalid Credentials1 !', 'data': {'alertMsg': 'Invalid Credentials11 !', 'redirect_url': None}}))
+                    return HttpResponse(json.dumps({'success': False, 'errorMsg': 'Invalid Credentials1 !', 'data': {'alertMsg': 'Invalid Credentials !', 'redirect_url': None}}))
             else : 
-                return HttpResponse(json.dumps({'success': False, 'errorMsg': 'Invalid Credentials2 !', 'data': {'alertMsg': 'Invalid Credentials 22!', 'redirect_url': None}})) 
+                return HttpResponse(json.dumps({'success': False, 'errorMsg': 'Invalid Credentials2 !', 'data': {'alertMsg': 'Invalid Credentials !', 'redirect_url': None}})) 
     
     except VerifyMismatchError as VerifyMissMatch:  
-        return HttpResponse(json.dumps({'success': False, 'errorMsg': 'Invalid Credentials3', 'data': {'alertMsg': 'Invalid Credentials', 'redirect_url': None}}))   
+        return HttpResponse(json.dumps({'success': False, 'errorMsg': 'Invalid Credentials3', 'data': {'alertMsg': 'Invalid Credentials !', 'redirect_url': None}}))   
     except NameError as nameError: 
         return HttpResponse(json.dumps({'success': False, 'errorMsg': 'nameError', 'data': {'alertMsg': 'nameError', 'redirect_url': None}}))  
     except TypeError as typeError: 

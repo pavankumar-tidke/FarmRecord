@@ -9,7 +9,7 @@ class Work(models.Model) :
     work_heading = models.CharField(max_length=100, null=True, default=f'default_work_desc_{work_id}') 
     work_desc = models.CharField(max_length=200, null=True, default=f'default_work_desc_{work_id}') 
     work_location = models.CharField(max_length=100, null=True, default=f'default_work_location_{work_id}') 
-    work_amount = models.CharField(max_length=50, null=True, default='0') 
+    work_amount = models.CharField(max_length=50, null=True, default='₹ 0 /-') 
     work_reciept = ArrayField(models.CharField(max_length=200), null=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)

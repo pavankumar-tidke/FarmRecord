@@ -8,7 +8,7 @@
 
 <div class="loading-animation">
   <div class="loading-container">
-      <div class="loading-text">Connecting to Secure Domain...</div>
+      <div class="loading-text text-center">Connecting securly...</div>
       <div class="loading-bar-container">
       <div class="loading-bar"></div>
       </div>
@@ -16,86 +16,80 @@
   </div>
 
 
-  <div class="auth-container  items-center px-5 py-12 lg:px-20">
+  <div class="auth-container  items-center px-2 py-12 lg:px-20">
     <!-- Signup form -->
-    <section class="signup-section bg-gray-900 rounded-lg">
+    <section class="signup-section bg-white dark:bg-gray-900 rounded-lg">
       <div
-        class="flex flex-col items-center justify-center px-6 py-3 mx-auto  mt-14"
+        class="flex flex-col items-center justify-center px-2 py-3 mx-auto  mt-14"
       >
         <a
           href="#"
-          class="flex items-center mb-6 text-2xl font-semibold  text-white"
+          class="flex items-center mb-6 text-2xl font-semibold  text-slate-900 dark:text-white"
         >
-          User Authentication
+          Create an account 
         </a>
         <div
-          class="w-full rounded-lg shadow  md:mt-0 sm:max-w-md xl:p-0 bg-gray-800 border-gray-700"
+          class="w-full rounded-lg shadow-xl border border-gray-300 dark:border-none md:mt-0 sm:max-w-md xl:p-0 bg-white dark:bg-gray-800 "
         >
-          <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
-            <h1
-              class="text-xl font-bold leading-tight tracking-tight   md:text-2xl  text-white"
-            >
-              Create an account
-            </h1>
+          <div class="p-6 space-y-4 md:space-y-6 sm:p-8"> 
             <form class="space-y-4 md:space-y-6" action="#" id="user_sign_up_form">
               <div>
                   <label
                     for="name"
-                    class="block mb-2 text-sm font-medium text-white"
-                    >Name</label
+                    class="block mb-2 text-sm font-semibold tracking-wide text-slate-700 dark:text-white"
+                    >Your Name</label
                   >
                   <input
                     type="text"
                     name="name"
                     id="name"
-                    class=" sm:text-sm rounded-lg focus:ring-primary-600   block w-full p-2.5  bg-gray-700  placeholder-gray-400  text-white  "
-                    placeholder="kz4u5yk"
-                    required=""
+                    class=" sm:text-sm rounded-lg focus:ring-primary-600 border border-gray-300 dark:border-none  block w-full p-2.5  bg-slate-100 shadow-lg dark:bg-gray-700  text-slate-900 dark:text-white  "
+                    placeholder="John Doe"
+                    required
                   />
               </div> 
               <div>
                 <label
                   for="email"
-                  class="block mb-2 text-sm font-medium text-white"
-                  >Your email</label
+                  class="block mb-2 text-sm font-semibold tracking-wide text-slate-700 dark:text-white"
+                  >Your Email Address</label
                 >
                 <input
                   type="email"
                   name="email"
                   id="email"
-                  class="email  sm:text-sm rounded-lg  block w-full p-2.5 bg-gray-700 placeholder-gray-400 text-white "
-                  placeholder="name@company.com"
-                  required=""
+                  class="email  sm:text-sm rounded-lg border border-gray-300 dark:border-none block w-full p-2.5 bg-slate-100 shadow-lg dark:bg-gray-700 placeholder-gray-400 text-slate-900 dark:text-white "
+                  placeholder="name@gmail.com"
+                  required
                 />
               </div>
               <div>
                 <label
                   for="password"
-                  class="block mb-2 text-sm font-medium text-white"
-                  >Password</label
+                  class="block mb-2 text-sm font-semibold tracking-wide text-slate-700 dark:text-white"
+                  >Create Password</label
                 >
                 <input
                   type="password"
                   name="password"
                   id="password"
                   placeholder="••••••••"
-                  class="password  sm:text-sm rounded-lg  block w-full p-2.5 bg-gray-700 placeholder-gray-400 text-white "
-                  required=""
+                  class="password  sm:text-sm rounded-lg border border-gray-300 dark:border-none block w-full p-2.5 bg-slate-100 shadow-lg dark:bg-gray-700 placeholder-gray-400 text-slate-900 dark:text-white "
+                  required="required"
                 />
               </div> 
               
               <button
                 type="button"
-                class="signup-submit w-full text-white  font-medium rounded-lg text-sm px-5 py-2.5 text-center bg-lime-600  "
+                class="signup-submit bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 align-middle text-center text-base font-semibold shadow-md shadow-sky-500 px-3 py-2 bg-blue-600 text-white rounded-lg w-full"
               >
                 Create an account
               </button>
-              <p class="text-sm font-normal text-gray-500 dark:text-gray-400">
-                Already have an account?
-                <a
-                  class="login-link cursor-pointer font-medium text-lime-600 hover:underline dark:text-lime-500"
-                  >Login here</a
-                >
+              <p class="text-sm font-semibold text-gray-500 dark:text-gray-400">
+                If you have already created an account?
+                <span
+                  class="login-link cursor-pointer font-bold text-blue-600 hover:underline dark:text-blue-500"
+                  >Login here</span>
               </p>
             </form>
 
@@ -114,71 +108,65 @@
 
 
     <!-- login form -->
-    <section class="login-section bg-gray-900 rounded-lg ">
+    <section class="login-section bg-white dark:bg-gray-900 rounded-lg ">
       <div
-        class="flex flex-col items-center justify-center mx-auto mt-14 "
+        class="flex flex-col items-center justify-center mx-5 mt-14 "
       >
-        <a
-          href="#"
-          class="flex items-center mb-6 text-2xl font-semibold  text-white"
+        <a 
+          class="flex items-center mb-6 text-2xl font-semibold text-slate-900 dark:text-white"
         >
-          User Login
+          Log In here
         </a>
         <div
-          class="w-full   rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 bg-gray-800 dark:border-gray-700"
+          class="w-full   rounded-lg shadow-xl border border-gray-300 dark:border-none md:mt-0 sm:max-w-md xl:p-0 bg-white dark:bg-gray-800"
         >
-          <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
-            <h1
-              class="text-xl font-bold leading-tight tracking-tight  md:text-2xl text-white"
-            >
-              Log In
-            </h1>
+          <div class="p-6 space-y-4 md:space-y-6 sm:p-8"> 
             <form class="space-y-4 md:space-y-6" action="#" > 
               {% csrf_token %}
               <div>
                 <label
                   for="email"
-                  class="block mb-2 text-sm font-medium  text-white"
-                  >Email</label
+                  class="block mb-2 text-sm font-semibold tracking-wide text-slate-700 dark:text-white"
+                  >Enter your email</label
                 >
                 <input
                   type="email"
                   name="loginEmail"
                   id="email"                                                                
-                  class="  sm:text-sm rounded-lg block w-full p-2.5  bg-gray-700  placeholder-gray-400 text-white "
+                  class="  sm:text-sm rounded-lg block w-full p-2.5 border border-gray-300 dark:border-none bg-slate-100 dark:bg-gray-700 text-slate-900 dark:text-white "
                   placeholder="user.email@domain.com"
-                  required=""
+                  required
                 />
               </div>
               <div>
                 <label
                   for="password"
-                  class="block mb-2 text-sm font-medium  text-white"
-                  >Password</label
+                  class="block mb-2 text-sm font-semibold tracking-wide text-slate-700 dark:text-white"
+                  >Enter password</label
                 >
                 <input
                   type="password"
                   name="loginPassword"
                   id="password"
                   placeholder="••••••••"
-                  class="  sm:text-sm rounded-lg  block w-full p-2.5  bg-gray-700  placeholder-gray-400  text-white  "
-                  required=""
+                  class="  sm:text-sm rounded-lg  block w-full p-2.5 border border-gray-300 dark:border-none bg-slate-100 dark:bg-gray-700 text-slate-900 dark:text-white "
+                  required
                 />
               </div>
-              <input type="text" hidden class="whichOperation" >
+              <input type="text" hidden class="whichOperation" > 
               <button
                 type="button"
-                class="login-submit w-full font-medium rounded-lg text-sm text-white px-5 py-2.5 text-center  bg-lime-600 hover:bg-lime-700  "
+                class="login-submit bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 align-middle text-center text-base font-semibold shadow-md shadow-sky-500 px-3 py-2 bg-blue-600 text-white rounded-lg w-full"
               >
-                Login 
+                Log In 
               </button>
               <p class="text-sm font-normal text-gray-500 dark:text-gray-400">
-                Don't have an account?
+                If you don't have an account, then create account from here.
                 <a
-                  class="signup-link cursor-pointer font-medium text-lime-600 hover:underline dark:text-lime-500"
-                  >Signup here</a
+                  class="signup-link cursor-pointer font-medium text-blue-600 hover:underline dark:text-blue-500"
+                  >Create Account Here</a
                 >
-              </p>
+              </p> 
             </form>
 
             {% comment %} <div class="inline-flex items-center justify-center w-full">
