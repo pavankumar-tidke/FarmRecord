@@ -1,4 +1,0 @@
-
-
-to run the ovpn on linux : 
-    openvpn --config portFord.first.ovpn
