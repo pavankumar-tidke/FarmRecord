@@ -1,4 +1,15 @@
-toastMessage('loaded !', 'success');
+
+
+const USER_ID = localStorage.getItem('user_id');
+const BASE_URL = `http://192.168.1.7:8000`;
+// const BASE_URL = `http://127.0.0.1:8000`;
+const MEDIA_URL = `upload/user_id_${USER_ID}`
+
+ 
+
+
+
+
 
 //******************************* GLOBAL FUNCTIONS ************************************/ 
 
@@ -61,6 +72,31 @@ function currentTime() {
 }
 
 
+function getFileExtension(filename) {
+  var parts = filename.split('.');
+  return parts[parts.length - 1];
+}
+
+/**
+ * format date time 
+ **/
+function getDateTime(dateTimeStr) {
+  const [date, time] = dateTimeStr.split(" at "); 
+
+  const [hours, minutes] = time.split(":");
+  let time12h = "";
+  
+  // Convert hours to 12-hour format
+  if (hours > 12) {
+    time12h = `${hours - 12}:${minutes} PM`;
+  } else if (hours === "12") {
+    time12h = `${hours}:${minutes} PM`;
+  } else {
+    time12h = `${hours}:${minutes} AM`;
+  }
+  
+  return {'date': date, 'time': time12h};
+}
 
 
 /**
@@ -71,6 +107,59 @@ function currentTime() {
  * @param { Boolean } form Is this a formData or not
  **/
 function transporter(method='GET', url='/', data={}, form=false, callback=null ) {
+  
+  try { 
+    if(form) {
+      $.ajax({
+        type: method,
+        url: `${BASE_URL}/${url}`,
+        contentType: false,
+        processData: false,
+        data: data,
+        beforeSend: function(xhr, settings) {
+            xhr.setRequestHeader("X-CSRFToken", getCookie("csrftoken"));
+        },
+        success: (response) => {
+          callback(true, JSON.parse(response)); 
+        },
+        error: (xhr, status, error) => { 
+          callback(false, JSON.parse(error));
+        },
+      }); 
+
+    } else {
+      $.ajax({
+        type: method,
+        url:`${BASE_URL}/${url}`,
+        dataType: "json",
+        data: data,
+        beforeSend: function(xhr, settings) {
+            xhr.setRequestHeader("X-CSRFToken", getCookie("csrftoken"));
+        },
+        success: (response) => {
+          callback(true, response); 
+        },
+        error: (xhr, status, error) => { 
+          callback(false, error);
+        },
+      });  
+    }
+    
+  } catch (error) {
+    console.error("AJAX transporter exception: => ", error);
+    toastMessage(`AJAX transporter exception: ${error}`, "danger")
+  }
+}
+
+/**
+ * inter_transporter function description
+ * @param { String } method Type of method (POST, GET, PUT, DELETE)
+ * @param { String } url Name of route 
+ * @param { String } data Data which been send  
+ * @param { Boolean } form Is this a formData or not
+ **/
+function inter_transporter(method='GET', url='/', data={}, form=false, callback=null ) {
+
   
   try { 
     if(form) {
@@ -94,7 +183,7 @@ function transporter(method='GET', url='/', data={}, form=false, callback=null )
     } else {
       $.ajax({
         type: method,
-        url: url, 
+        url:url,
         dataType: "json",
         data: data,
         beforeSend: function(xhr, settings) {
@@ -110,8 +199,8 @@ function transporter(method='GET', url='/', data={}, form=false, callback=null )
     }
     
   } catch (error) {
-    console.error("AJAX transporter exception: => ", error);
-    toastMessage(`AJAX transporter exception: ${error}`, "danger")
+    console.error(" inter_transporter exception: => ", error);
+    toastMessage(` inter_transporter exception: ${error}`, "danger")
   }
 }
 
@@ -155,7 +244,7 @@ var types = {
 function toastMessage(message='message_not_given', type='red', id=rnum()) {
   try {
     let a = `
-            <div id="toast-id-${id}" class="toast-msg z-[99999] border border-gray-200 dark:border-gray-700 fixed top-5 right-4 shadow-lg shadow-slate-200 dark:shadow-md dark:shadow-slate-100/25 flex items-center max-w-xs px-2 py-2 rounded-lg shadow text-gray-400 bg-sky-50 dark:bg-slate-800" role="alert">
+            <div id="toast-id-${id}" class="toast-msg absolute top-9 right-4 border border-gray-200 dark:border-gray-700 shadow-lg shadow-slate-200 dark:shadow-md dark:shadow-slate-100/25 flex items-center  px-2 py-2 rounded-lg shadow text-gray-400 bg-sky-50 dark:bg-slate-800" role="alert">
                 ${icons[type]}
               <div class="ml-3 text-sm text-slate-900 dark:text-white font-semibold">${message}.</div> 
             </div> 
@@ -176,4 +265,37 @@ function toastMessage(message='message_not_given', type='red', id=rnum()) {
 }
 
 
-toastMessage('This is a success message', 'success');
+toastMessage('This is a success message', 'success'); 
+
+
+
+
+/**
+ * modal showing description
+ * @param { String } message To provide alert message to the user 
+ * @param { String } type Type of alert (success, danger, info, warning) 
+ **/
+function modal(div=null, id=rnum()) {
+  try {
+    let a = `
+        <div id="bottom-modal-id-${id}">
+          ${div}
+        </div>
+    `;
+
+          
+    $('#base-bottom-popup').removeClass('hidden animate-topToBottom').addClass('animate-bottomToTop')   
+    $('#bottom-popup').append(a); 
+ 
+  } catch (error) {
+    return `Following exception found while showing modal. ==>  ${error}`;
+  }
+}
+
+function closeModal() {
+  $('#base-bottom-popup').removeClass('animate-bottomToTop').addClass('hidden animate-topToBottom'); 
+  $('#bottom-popup').empty();
+}
+
+
+

@@ -34,7 +34,7 @@ $('.signup-submit').click( (e) => {
 
   if(data.name != '' || data.email != '' || data.password != ''){
     try{
-      transporter('POST', `authenticateUser/`, data, false, (status, res) => {
+      transporter('POST', `api/auth/authenticateUser/`, data, false, (status, res) => {
         (status && res.success) ? toastMessage(res.data.alertMsg, 'success') : toastMessage(res.data.alertMsg, 'warning'); 
         $('.signup-submit').removeClass('opacity-75').attr('disabled', false).html('Create an account');
         $('#user_sign_up_form')[0].reset();
@@ -71,18 +71,38 @@ $('.login-submit').click( (e) => {
   }
   
   try {
-    transporter("POST", `authenticateUser/`, data, false, (status, res) => { 
+    transporter("POST", `api/auth/authenticateUser/`, data, false, (status, res) => { 
 
       if(status && res.success) { 
-        $(".auth-container, .auth-nav").hide();
-        $(".loading-animation").show();
-          setTimeout(function() {
-            window.location.href = '/dashboard/' 
-        // }, 7000);
-        }, 200);
+        // console.log(res);
+
+        localStorage.setItem('user_id', res.data.user['id']);
+        localStorage.setItem('user_name', res.data.user['name']);
+        localStorage.setItem('user_email', res.data.user['email']);
+ 
+        
+        let data = new FormData();
+        data.append('id', res.data.user['id']);
+        data.append('name', res.data.user['name']);
+        data.append('email', res.data.user['email']);
+        
+        inter_transporter("POST", `setsession/`, data, true, (status, res) => {
+          if(status && res.success) { 
+            $(".auth-container, .auth-nav").hide();
+            $(".loading-animation").show();
+              setTimeout(function() {
+                window.location.href = '/dashboard/' 
+            // }, 7000);
+            }, 200);
+          } else {
+            toastMessage('inter-transporter error while setting session !', 'danger');
+            $('.login-submit').removeClass('opacity-75').attr('disabled', false).html('Login In');
+          }
+        });
+        
       } else {
         toastMessage(res.data.alertMsg, 'danger');
-        $('.login-submit').removeClass('opacity-75').attr('disabled', false).html('Login In Here');
+        $('.login-submit').removeClass('opacity-75').attr('disabled', false).html('Login In');
       }
     });
   } catch (error) {
@@ -96,7 +116,7 @@ $('.login-submit').click( (e) => {
 function logoutUser() {
 
   try {
-    transporter("POST", `/auth/userlogout/`, data, false, (status, res) => { 
+    transporter("POST", `api/auth/userlogout/`, data, false, (status, res) => { 
       // (status && res.success) ? window.location.href = res.data.redirect_url : toastMessage(res.data.alertMsg, 'danger');
       console.log(res);
 

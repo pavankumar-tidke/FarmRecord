@@ -81,21 +81,21 @@ WSGI_APPLICATION = 'FarmRecord.wsgi.application'
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
 DATABASES = {
-    # 'default': {
-    #     'ENGINE': 'django.db.backends.postgresql',
-    #     'NAME': 'FarmRecord',
-    #     'USER': 'postgres',
-    #     'PASSWORD': 'pgadmin',
-    #     'HOST': 'localhost',   
-    # },
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'FarmRecord',
         'USER': 'postgres',
         'PASSWORD': 'pgadmin',
-        'HOST': '0.tcp.in.ngrok.io',
-        'PORT': os.environ.get('NGROK_DB_PORT'),
-    }, 
+        'HOST': 'localhost',   
+    },
+    # 'default': {
+    #     'ENGINE': 'django.db.backends.postgresql',
+    #     'NAME': 'FarmRecord',
+    #     'USER': 'postgres',
+    #     'PASSWORD': 'pgadmin',
+    #     'HOST': '0.tcp.in.ngrok.io',
+    #     'PORT': os.environ.get('NGROK_DB_PORT'),
+    # }, 
 }
 
 
