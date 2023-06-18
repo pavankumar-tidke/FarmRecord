@@ -1,0 +1,9 @@
+django 
+faker
+argon2-cffi
+Pillow
+psycopg2-binary==2.9.5 
+numpy
+typesense
+python-dotenv
+django-cors-headers
