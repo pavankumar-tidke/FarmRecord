@@ -28,6 +28,9 @@ DEBUG = True
 ALLOWED_HOSTS = ['*', '.vercel.app', '.now.sh', '.ngrok.io', '0.tcp.in.ngrok.io', '192.168.1.7', '100.73.211.179']
 
 
+CORS_ORIGIN_ALLOW_ALL = True
+
+
 # Application definition
 
 INSTALLED_APPS = [
@@ -37,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'corsheaders',
     'Auth',
     'Field',
 ]
@@ -49,9 +53,10 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
 ]
 
-ROOT_URLCONF = 'FarmRecord.urls'
+ROOT_URLCONF = 'api.urls'
 
 TEMPLATES = [
     {
@@ -69,7 +74,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'FarmRecord.wsgi.application'
+WSGI_APPLICATION = 'api.wsgi.application'
 
 
 # Database

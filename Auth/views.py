@@ -1,9 +1,9 @@
 from django.shortcuts import render, redirect
 from django.views.decorators.csrf import csrf_exempt
 from django.http import HttpResponse, JsonResponse, HttpResponseServerError  
-from Auth.models import User, Admin
+from Auth.models import MUser, Admin
 import json, random, typesense  
-from FarmRecord.globals import GLOBALS 
+from api.globals import GLOBALS 
 from argon2 import PasswordHasher
 from argon2.exceptions import VerifyMismatchError
 ph = PasswordHasher()
@@ -12,24 +12,8 @@ g = GLOBALS()
 
 '''Create your views here.'''
 
-# user login & signup page
-def auth_page(request) :
-    if (g.session_name not in request.session) :
-        return render(request, 'pages/auth.html')
-        # return render(request, 'pages/loading.html')
-    return redirect('/')
-    
-# admin login & signup page
-def admin_auth_page(request) :
-    if (g.admin_session_name not in request.session) :
-        return render(request, 'pages/adminAuth.html') 
-    return redirect('/a/') 
 
-
-
-
-
-# user Authentication sign up & sign in action
+# user Authentication sign up & sign in action 
 @csrf_exempt
 def authenticate_user(request) : 
 
@@ -39,16 +23,16 @@ def authenticate_user(request) :
         if request.POST.get('operation')  == 'signup' :  
 
             # searching username from the PostgreSQl DB
-            if User.objects.filter(email=email).exists() == False :      
+            if MUser.objects.filter(email=email).exists() == False :      
 
                 # user signup logic
                 name = request.POST.get('name')    
                 hash = ph.hash(request.POST.get('password'))  
                 
                 ## inserting the data in our postgresql DB  ##
-                User.objects.create(name=name, email=email, password=hash).save() 
-                user = User.objects.get(email=email)
-                g.setUserSession(request, g.session_name, {'id': user.id, 'name': user.name, 'email': user.email})
+                MUser.objects.create(name=name, email=email, password=hash).save() 
+                
+                # g.setUserSession(request, g.session_name, {'id': user.id, 'name': user.name, 'email': user.email}) 
                 return HttpResponse(json.dumps({'success': True, 'data': {'alertMsg': 'Account Created !', 'redirect_url': '/'}}))
 
             else :
@@ -56,13 +40,14 @@ def authenticate_user(request) :
         
         else:  
             # user login logic   
-            if User.objects.filter(email=email).exists() :
+            if MUser.objects.filter(email=email).exists() :
                 print('got email')
-                user = User.objects.get(email=email)
+                user = MUser.objects.get(email=email)
                 if ph.verify(user.password, request.POST.get('password')) :
                     print('got passwd')
                     g.setUserSession(request, g.session_name, {'id': user.id, 'name': user.name, 'email': user.email})
-                    return HttpResponse(json.dumps({'success': True, 'errorMsg': False, 'error': False, 'data': {'alertMsg': 'qweqr', 'redirect_url': '/'}}))                    
+                    userDetails = {'id': user.id, 'name': user.name, 'email': user.email}
+                    return HttpResponse(json.dumps({'success': True, 'errorMsg': False, 'error': False, 'data': {'alertMsg': 'qweqr', 'user': userDetails, 'redirect_url': '/'}}))                    
                 else :
                     return HttpResponse(json.dumps({'success': False, 'data': {'alertMsg': "Wrong 'email' or 'password' !", 'redirect_url': None}}))
             else : 
