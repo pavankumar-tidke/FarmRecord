@@ -1,10 +1,11 @@
 
 
+const NG_PORT = 11146
 const USER_ID = localStorage.getItem('user_id');
-const BASE_URL = `http://0.tcp.in.ngrok.io:15680`;
+const MEDIA_URL = `upload/user_id_${USER_ID}`
+const BASE_URL = `http://0.tcp.in.ngrok.io:${NG_PORT}`;
 // const BASE_URL = `http://192.168.1.7:8000`;
 // const BASE_URL = `http://127.0.0.1:8000`;
-const MEDIA_URL = `upload/user_id_${USER_ID}`
 
  
 
