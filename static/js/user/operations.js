@@ -40,7 +40,7 @@ $('#r_w_btn_form').submit(function (e) {
             form.append('work_reciept', files[i]); 
         } 
 
-        transporter('POST', 'api/sw/', form, true, (status, res) => {
+        transporter('POST', '/sw/', form, true, (status, res) => {
             console.log(res);
             if(status && res.success) {
                 $('#r_w_btn_form')[0].reset();
@@ -120,7 +120,7 @@ function viewWork() {
     let data = new FormData();
     data.append('user_id', USER_ID)
     
-    transporter('POST', 'api/fetch/all_work/', data, true, (status, res) => {
+    transporter('POST', '/fetch/all_work/', data, true, (status, res) => {
         console.log(res);
 
         prependWorkCard(res)
