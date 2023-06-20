@@ -114,7 +114,7 @@ function transporter(method='GET', url='/', data={}, form=false, callback=null )
     if(form) {
       $.ajax({
         type: method,
-        url: `${BASE_URL}/${url}`,
+        url: `${url}`,
         contentType: false,
         processData: false,
         data: data,
@@ -132,7 +132,7 @@ function transporter(method='GET', url='/', data={}, form=false, callback=null )
     } else {
       $.ajax({
         type: method,
-        url:`${BASE_URL}/${url}`,
+        url:`${url}`,
         dataType: "json",
         data: data,
         beforeSend: function(xhr, settings) {
