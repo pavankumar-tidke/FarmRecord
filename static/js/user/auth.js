@@ -2,12 +2,12 @@
 // Toggle between the signup and login view
 $('.signup-section').hide()
 $('.login-link').click( (e) => {
-    $('.login-section').show();
-    $('.signup-section').hide();
+    $('.login-section').removeClass('animamte-rightToLeft').addClass('animate-leftToRight').show();
+    $('.signup-section').removeClass('animamte-rightToLeft').addClass('animate-leftToRight').hide();
 }) ;
 $('.signup-link').click( (e) => {
-    $('.login-section').hide();
-    $('.signup-section').show();
+    $('.login-section').removeClass('animamte-leftToRight').addClass('animate-rightToLeft').hide();
+    $('.signup-section').removeClass('animamte-leftToRight').addClass('animate-rightToLeft').show();
 }) ;
 
 
