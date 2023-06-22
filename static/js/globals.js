@@ -246,21 +246,21 @@ var types = {
 function toastMessage(message='message_not_given', type='red', id=rnum()) {
   try {
     let a = `
-            <div id="toast-id-${id}" class="toast-msg absolute top-9 right-4 border border-gray-200 dark:border-gray-700 shadow-lg shadow-slate-200 dark:shadow-md dark:shadow-slate-100/25 flex items-center  px-2 py-2 rounded-lg shadow text-gray-400 bg-sky-50 dark:bg-slate-800" role="alert">
+            <div class="toast-msg border border-gray-200 dark:border-gray-700 shadow-lg items-center shadow-slate-200 dark:shadow-md dark:shadow-slate-100/25 flex  px-2 py-2 rounded-lg shadow text-gray-400 bg-sky-50 dark:bg-slate-800" id="toast-id-${id}" role="alert">
                 ${icons[type]}
               <div class="ml-3 text-sm text-slate-900 dark:text-white font-semibold">${message}.</div> 
             </div> 
           `;
-    $('.alert').append(a).animate();
-    $(`#toast-id-${id}`).addClass('animate-rightToLeft')  
+    $('.alert').append(a);  
+    $(`#toast-id-${id}`).addClass('animation-alert')  
     // $('#toast-').show() 
     setTimeout(() => {
-      $(`#toast-id-${id}`).removeClass('animate-rightToLeft');
-      $(`#toast-id-${id}`).addClass('animate-leftToRight');
+      // $(`#toast-id-${id}`).removeClass('animation-alert');
+      $(`#toast-id-${id}`).addClass('animation-hide');
       setTimeout(() => {
         $(`#toast-id-${id}`).remove();
-      }, 200)
-    }, 4000)
+      }, 2000)
+    }, 2000)
   } catch (error) {
     return `Following exception found while showing alert. ==>  ${error}`;
   }
