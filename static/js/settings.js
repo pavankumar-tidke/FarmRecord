@@ -21,7 +21,7 @@ $('.theme-toggle-button').click(function() {
 
 //** ACTIVE CLASS ADDED IN NAV BASED ON URL **/ 
 let urlPathName = window.location.pathname.replace(/\//g, "") 
-$(`#${urlPathName}`).addClass('!text-sky-500');
-$(`.bottom-nav #${urlPathName}, .bottom-nav #${urlPathName} span`).addClass('!text-sky-500');
+$(`#${urlPathName}`).addClass('!text-sky-600');
+$(`.bottom-nav #${urlPathName}`).addClass('!text-sky-500');
 // $(`.bottom-nav #${urlPathName} span`).addClass('!text-blue-400');
 

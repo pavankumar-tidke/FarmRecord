@@ -1,25 +1,27 @@
 {% load static %}
 
 <div class="bottom-nav fixed bottom-0 left-0 z-50 w-full h-14 bg-slate-100 border-t-2 rounded-xl border-blue-400 dark:bg-gray-700">
-  <div class="grid h-full max-w-lg grid-cols-4 mx-auto font-medium">
-      <a href="/dashboard/" id="dashboard" type="button" class="inline-flex flex-col text-gray-500 dark:text-gray-400 rounded-lg items-center justify-center px-5 hover:bg-gray-50 dark:hover:bg-gray-800 group">
+  <div class="grid h-full max-w-lg grid-cols-5 mx-auto font-medium">
+      <a href="/dashboard/" id="dashboard" type="button" class="inline-flex flex-col text-gray-500 dark:text-gray-200 rounded-lg items-center justify-center px-5 group">
         <span class="material-symbols-outlined">home</span>
-        <h5 class="text-sm group-hover:text-blue-600 dark:group-hover:text-blue-500">Home</h5>
+        {% comment %} <h5 class="text-sm group-hover:text-blue-600 dark:group-hover:text-blue-500">Home</h5> {% endcomment %}
     </a>
-    <a href="/aw/" id="aw" type="button" class="inline-flex flex-col text-gray-500 dark:text-gray-400 rounded-lg items-center justify-center px-5 hover:bg-gray-50 dark:hover:bg-gray-800 group">
-        <span class="material-symbols-outlined ">work</span>
-        <h5 class="text-sm  whitespace-nowrap group-hover:text-blue-600 dark:group-hover:text-blue-500">Add Work</h5>
+    <a href="/vw/" id="vw" type="button" class="inline-flex flex-col text-gray-500 dark:text-gray-200 rounded-lg items-center justify-center px-5  group">
+        <span class="material-symbols-outlined ">view_agenda</span>
+        {% comment %} <h5 class="text-sm  whitespace-nowrap group-hover:text-blue-600 dark:group-hover:text-blue-500">View Records</h5> {% endcomment %}
+    </a> 
+    <a href="/aw/" id="aw" type="button" class="inline-flex flex-col text-gray-500 dark:text-gray-200 rounded-lg items-center justify-center px-5 group">
+        <span class="material-symbols-outlined  bg-blue-700 rounded-full p-2">add</span>
+        {% comment %} <h5 class="text-sm  whitespace-nowrap group-hover:text-blue-600 dark:group-hover:text-blue-500">Add Work</h5> {% endcomment %}
     </a>
-    <a href="/vw/" id="vw" type="button" class="inline-flex flex-col text-gray-500 dark:text-gray-400 rounded-lg items-center justify-center px-5 hover:bg-gray-50 dark:hover:bg-gray-800 group">
-        <span class="material-symbols-outlined ">pageview</span>
-        <h5 class="text-sm  whitespace-nowrap group-hover:text-blue-600 dark:group-hover:text-blue-500">View Records</h5>
-    </a>
-      <button type="button" class="inline-flex flex-col items-center justify-center px-5 hover:bg-gray-50 dark:hover:bg-gray-800 group">
-          <svg class="w-6 h-6 mb-1 text-gray-500 dark:text-gray-400 group-hover:text-blue-600 dark:group-hover:text-blue-500" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-              <path d="M5 4a1 1 0 00-2 0v7.268a2 2 0 000 3.464V16a1 1 0 102 0v-1.268a2 2 0 000-3.464V4zM11 4a1 1 0 10-2 0v1.268a2 2 0 000 3.464V16a1 1 0 102 0V8.732a2 2 0 000-3.464V4zM16 3a1 1 0 011 1v7.268a2 2 0 010 3.464V16a1 1 0 11-2 0v-1.268a2 2 0 010-3.464V4a1 1 0 011-1z"></path>
-          </svg>
-          <span class="text-sm text-gray-500 dark:text-gray-400 group-hover:text-blue-600 dark:group-hover:text-blue-500">Settings</span>
-      </button>
+    <a href="#" id="" type="button" class="inline-flex flex-col text-gray-500 dark:text-gray-200 rounded-lg items-center justify-center px-5  group">
+        <span class="material-symbols-outlined ">database</span>
+        {% comment %} <h5 class="text-sm  whitespace-nowrap group-hover:text-blue-600 dark:group-hover:text-blue-500">View Records</h5> {% endcomment %}
+    </a> 
+    <a href="#" id="" type="button" class="inline-flex flex-col text-gray-500 dark:text-gray-200 rounded-lg items-center justify-center px-5  group">
+        <span class="material-symbols-outlined ">settings</span>
+        {% comment %} <h5 class="text-sm  whitespace-nowrap group-hover:text-blue-600 dark:group-hover:text-blue-500">View Records</h5> {% endcomment %}
+    </a> 
   </div>
 </div>
 

@@ -110,6 +110,29 @@ function e_w_f_submit() {
 
 }
 
+
+// delete work card//
+function d_w(workid, work_id) {  
+    let form = new FormData();
+    
+    form.append('workid', workid); 
+
+    $(`#card-id-${work_id}`).addClass('animate-leftToRight');
+    setTimeout(() => { 
+        $(`#card-id-${work_id}`).remove();
+        // modal(div);
+    }, 500)
+    transporter('POST', '/dw/', form, true, (status, res) => {
+        console.log(res);
+        if(status && res.success) {  
+            toastMessage(res.data.alertMsg, 'success'); 
+        } else { 
+            toastMessage(res.data.alertMsg, 'danger')
+        }
+    });
+}
+
+
 // prepend all work cards //
 function prependWorkCard(arrayOfObjects) { 
 
@@ -118,10 +141,11 @@ function prependWorkCard(arrayOfObjects) {
     arrayOfObjects.forEach((work, index) => {
         let w = work.fields; 
         let receipt_array = JSON.parse(w.work_reciept);  
+        // console.log(typeof w);
 
         let date = getDateTime(w.added_at).date
         let time = getDateTime(w.added_at).time
-
+        
         let card_id = `card-id-${w.work_id}`
 
         if (date !== previousDate) { 
@@ -146,7 +170,7 @@ function prependWorkCard(arrayOfObjects) {
                     <div class="flex justify-end space-x-3 w-full ">
                     ${(receipt_array.length !== 0) ? `<span onclick="fetchDocument('${w.work_heading}', '${receipt_array[0]}')" class="flex justify-end material-symbols-outlined align-middle text-slate-900 dark:text-white" style="font-variation-settings: 'opsz' 20; text-size: 15px !important;"> receipt_long </span>` : ``} 
                         <span onclick="editWorkModalHTML(${work.pk}, '${w.work_heading}', '${w.work_desc}', '${w.work_amount}', '${w.work_location}')" class="flex justify-end material-symbols-outlined align-middle text-slate-900 dark:text-white" style="font-variation-settings: 'opsz' 20; text-size: 15px !important;"> edit </span>
-                        <span class="flex justify-end material-symbols-outlined align-middle text-red-600 dark:text-red-600" style="font-variation-settings: 'opsz' 20; text-size: 15px !important;"> delete_forever </span>  
+                        <span onclick="d_w(${work.pk}, '${w.work_id}')" class="flex justify-end material-symbols-outlined align-middle text-red-600 dark:text-red-600" style="font-variation-settings: 'opsz' 20; text-size: 15px !important;"> delete </span>  
                     </div> 
                 </div> 
                 <div onclick="modal($('#${card_id}').html())" class="pr-5">

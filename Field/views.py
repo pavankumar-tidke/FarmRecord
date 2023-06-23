@@ -137,6 +137,19 @@ def edit_work(request) :
     except Exception as e:
         print('ew Exception --> ', e)
         return HttpResponse(json.dumps({'success': False, 'data': {'alertMsg': 'Exception !'}}))
+
+@csrf_exempt
+def delete_work(request) :
+    try:   
+        workid = request.POST.get('workid')
+        w = Work.objects.get(id=workid)
+        w.delete()
+        
+        return HttpResponse(json.dumps({'success': True, 'data': {'alertMsg': 'Work Deleted Successfully !'}}))
+ 
+    except Exception as e:
+        print('dw Exception --> ', e)
+        return HttpResponse(json.dumps({'success': False, 'data': {'alertMsg': 'Exception !'}}))
     
 
 @csrf_exempt
