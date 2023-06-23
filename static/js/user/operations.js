@@ -32,7 +32,7 @@ $('#r_w_btn_form').submit(function (e) {
         form.append('work_location', $("input[name='work_location']").val());
         form.append('currTime', currentTime());
         console.log(currentTime());
-        form.append('work_amount', `${$("input[name='work_amount']").val()} /-`); 
+        form.append('work_amount', `${$("input[name='work_amount']").val()}`); 
 
         var files = $("input[id='reciept-file']").prop('files');
         for (var i = 0; i < files.length; i++) {
@@ -121,7 +121,7 @@ function d_w(workid, work_id) {
     setTimeout(() => { 
         $(`#card-id-${work_id}`).remove();
         // modal(div);
-    }, 500)
+    }, 200)
     transporter('POST', '/dw/', form, true, (status, res) => {
         console.log(res);
         if(status && res.success) {  
