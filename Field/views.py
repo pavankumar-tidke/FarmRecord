@@ -103,6 +103,40 @@ def save_work(request) :
     except Exception as e:
         print('sw Exception --> ', e)
         return HttpResponse(json.dumps({'success': False, 'data': {'alertMsg': 'Exception !'}}))
+
+        
+@csrf_exempt
+def edit_work(request) :
+    try:   
+        work_heading = request.POST.get('work_heading')
+        files = request.FILES.getlist('work_reciept')     
+        workid = request.POST.get('workid')
+        work_reciept = []
+
+        user_id = g.getUserSession(request, g.session_name)['id'] 
+        
+        for file in files :  
+            newFileName = fs.save(f'./user_id_{user_id}/work_title_{work_heading}/' + file.name, file)
+            work_reciept.append(os.path.basename(newFileName))                    
+            
+        w = Work.objects.get(id=workid)
+        w.work_heading = work_heading
+        w.work_desc = request.POST.get('work_desc')
+        w.work_location = request.POST.get('work_location')
+        w.work_amount = request.POST.get('work_amount')
+        w.edited_at = request.POST.get('editTime')
+                
+        w.save()
+        
+        return HttpResponse(json.dumps({'success': True, 'data': {'alertMsg': 'Work Edited Successfully !'}}))
+ 
+
+    except FileNotFoundError as e:
+        print('ew FileNotFoundError --> ', e)
+        return HttpResponse(json.dumps({'success': False, 'data': {'alertMsg': 'FileNotFoundError'}}))
+    except Exception as e:
+        print('ew Exception --> ', e)
+        return HttpResponse(json.dumps({'success': False, 'data': {'alertMsg': 'Exception !'}}))
     
 
 @csrf_exempt

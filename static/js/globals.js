@@ -252,12 +252,12 @@ function toastMessage(message='message_not_given', type='red', id=rnum()) {
             </div> 
           `;
     $('.alert').append(a);  
-    $(`#toast-id-${id}`).addClass('animation-alert')  
+    $(`#toast-id-${id}`).addClass('animation-alert');  
     // $('#toast-').show() 
     setTimeout(() => {
       // $(`#toast-id-${id}`).removeClass('animation-alert');
-      $(`#toast-id-${id}`).addClass('animation-hide');
       setTimeout(() => {
+        $(`#toast-id-${id}`).removeClass('animation-alert').addClass('animation-hide');
         $(`#toast-id-${id}`).remove();
       }, 2000)
     }, 2000)
@@ -299,5 +299,4 @@ function closeModal() {
   $('#bottom-popup').empty();
 }
 
-
-
+ 

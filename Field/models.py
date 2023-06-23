@@ -12,6 +12,7 @@ class Work(models.Model) :
     work_amount = models.CharField(max_length=50, null=True, default='₹ 0 /-') 
     work_reciept = ArrayField(models.CharField(max_length=200), null=True)
     added_at = models.CharField(max_length=50, null=True, default='-') 
+    edited_at = models.CharField(max_length=50, null=True, default='-') 
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     MUser = models.ForeignKey(MUser, on_delete=models.CASCADE, null=True) 
