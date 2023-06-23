@@ -32,7 +32,7 @@ $('#r_w_btn_form').submit(function (e) {
         form.append('work_location', $("input[name='work_location']").val());
         form.append('currTime', currentTime());
         console.log(currentTime());
-        form.append('work_amount', `₹ ${$("input[name='work_amount']").val()} /-`); 
+        form.append('work_amount', `${$("input[name='work_amount']").val()} /-`); 
 
         var files = $("input[id='reciept-file']").prop('files');
         for (var i = 0; i < files.length; i++) {
@@ -80,31 +80,28 @@ function prependWorkCard(arrayOfObjects) {
                 </div>
             `);    
             previousDate = date;
-        } 
+        }
  
         $('#work-card-div').prepend(`
-            <div class="w-full px-2 py-1 bg-white border border-gray-300 rounded-2xl shadow-xl dark:shadow-gray-900 dark:bg-gray-800 dark:border-gray-700">
-                <div class="flex justify-between w-full">
-                    <div class="flex w-full">
+            <div onclick="modal(this.outerHTML)" class="w-full p-2   bg-white border border-gray-300 rounded-2xl shadow-xl dark:shadow-gray-900 dark:bg-gray-800 dark:border-gray-700">
+                <div class="flex justify-between  ">
+                    <div class="flex">
                         <img class="mr-2 h-10" src="/static/media/work/plough.png" alt="image" /> 
-                        <div class="my-auto">
-                            <h5 class="text-xl font-semibold tracking-tight truncate text-gray-900 dark:text-white">${w.work_heading}</h5>
+                        <div class="flex grow">
+                            <h5 class="text-xl font-base tracking-tight truncate w-[205px] overflow-hidden text-gray-900 dark:text-white">${w.work_heading}</h5>
                         </div>
                     </div>
                     <div class="flex justify-end space-x-3 w-full ">
                     ${(receipt_array.length !== 0) ? `<span onclick="fetchDocument('${w.work_heading}', '${receipt_array[0]}')" class="flex justify-end material-symbols-outlined align-middle text-slate-900 dark:text-white" style="font-variation-settings: 'opsz' 20; text-size: 15px !important;"> receipt_long </span>` : ``} 
                         <span class="flex justify-end material-symbols-outlined align-middle text-slate-900 dark:text-white" style="font-variation-settings: 'opsz' 20; text-size: 15px !important;"> edit </span>
-                        <span class="flex justify-end material-symbols-outlined align-middle text-red-600 dark:text-red-600" style="font-variation-settings: 'opsz' 20; text-size: 15px !important;"> delete_forever </span>
+                        <span class="flex justify-end material-symbols-outlined align-middle text-red-600 dark:text-red-600" style="font-variation-settings: 'opsz' 20; text-size: 15px !important;"> delete_forever </span>  
                     </div> 
                 </div> 
-                <p class="mb-3 font-normal text-slate-700 dark:text-slate-400 line-clamp-1">${w.work_desc}</p>
+                <p class="my-3 mr-5 font-base text-slate-700 dark:text-slate-400 line-clamp-1">${w.work_desc}</p>
                 <div class="flex justify-between w-full">
-                    <div class=" w-full">  
-                        <h5 class=" text-base w-full font-semibold tracking-wide text-gray-900 dark:text-white">${w.work_amount}</h5>
-                    </div>
-                    <div class="flex flex-col justify-start  w-full ">
-                        <h5 class="flex text-sm w-full font-semibold tracking-wide text-gray-500 dark:text-gray-500"> <span class="flex justify-end material-symbols-outlined align-middle text-slate-900 dark:text-white mr-2" style="font-variation-settings: 'opsz' 20; text-size: 15px !important;"> schedule </span>   ${time}</h5>
-                        <h5 class="flex text-sm w-full font-normal tracking-wide text-gray-900 dark:text-white"> <span class="flex justify-end material-symbols-outlined align-middle text-slate-900 dark:text-white mr-2" style="font-variation-settings: 'opsz' 20; text-size: 15px !important;"> location_on </span> ${w.work_location}</h5>
+                    <div class="flex space-x-1 w-full">  
+                        <h5 class="flex text-lg w-full font-semibold tracking-wide text-gray-900 dark:text-gray-200"><span class="flex justify-end material-symbols-outlined align-middle text-slate-900 dark:text-white mr-2" style="font-variation-settings: 'opsz' 20; text-size: 15px !important;"> currency_rupee </span> ${w.work_amount}</h5>  
+                        <h5 class="flex text-lg w-full font-normal tracking-wide text-gray-800 dark:text-gray-300"> <span class="flex justify-end material-symbols-outlined align-middle text-slate-900 dark:text-white mr-2" style="font-variation-settings: 'opsz' 20; text-size: 15px !important;"> location_on </span> ${w.work_location}</h5>
                     </div> 
                 </div>
             </div>
@@ -113,6 +110,19 @@ function prependWorkCard(arrayOfObjects) {
         
     });  
 }
+
+
+// work edit modal //
+function viewWorkModalHTML() {
+    
+}
+
+
+// work edit modal //
+function editWorkModalHTML() {
+
+}
+
 
 // Fetch all works //
 function viewWork() { 
