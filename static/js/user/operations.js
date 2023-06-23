@@ -32,8 +32,7 @@ $('#r_w_btn_form').submit(function (e) {
         form.append('work_location', $("input[name='work_location']").val());
         form.append('currTime', currentTime());
         console.log(currentTime());
-        form.append('work_amount', `₹ ${$("input[name='work_amount']").val()} /-`);
-        form.append('user_id', USER_ID)
+        form.append('work_amount', `₹ ${$("input[name='work_amount']").val()} /-`); 
 
         var files = $("input[id='reciept-file']").prop('files');
         for (var i = 0; i < files.length; i++) {

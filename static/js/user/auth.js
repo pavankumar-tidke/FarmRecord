@@ -76,6 +76,11 @@ $('.login-submit').click( (e) => {
 
       if(status && res.success) { 
         // console.log(res);
+
+        localStorage.setItem('user_id', res.data.user['id']);
+        localStorage.setItem('user_name', res.data.user['name']);
+        localStorage.setItem('user_email', res.data.user['email']);
+        
         toastMessage(res.data.alertMsg, 'success');
         window.location.href = res.data.redirect_url;
 

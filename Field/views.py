@@ -1,5 +1,7 @@
 from django.shortcuts import render, redirect, HttpResponse
 from django.views.decorators.csrf import csrf_exempt
+from django.http import JsonResponse
+from django.core.serializers import serialize
 from django.core.files.storage import FileSystemStorage
 from .models import Work
 from FarmRecord.globals import GLOBALS 
@@ -74,7 +76,7 @@ def save_work(request) :
         work_id = g.randID()
         work_reciept = []
 
-        user_id = int(request.POST.get('user_id'))  
+        user_id = g.getUserSession(request, g.session_name)['id'] 
           
         for file in files :  
             newFileName = fs.save(f'./user_id_{user_id}/work_title_{work_heading}/' + file.name, file)
@@ -93,12 +95,13 @@ def save_work(request) :
         )
 
         return HttpResponse(json.dumps({'success': True, 'data': {'alertMsg': 'Work Saved !'}}))
-
+ 
 
     except FileNotFoundError as e:
-        print('FileNotFoundError --> ', e)
+        print('sw FileNotFoundError --> ', e)
         return HttpResponse(json.dumps({'success': False, 'data': {'alertMsg': 'FileNotFoundError'}}))
     except Exception as e:
+        print('sw Exception --> ', e)
         return HttpResponse(json.dumps({'success': False, 'data': {'alertMsg': 'Exception !'}}))
     
 
