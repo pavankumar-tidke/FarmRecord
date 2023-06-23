@@ -100,10 +100,13 @@ $('.login-submit').click( (e) => {
 // user logout button
 function logoutUser() {
 
+  localStorage.clear(); 
+
   try {
     transporter("POST", `/userlogout/`, data, false, (status, res) => { 
       // (status && res.success) ? window.location.href = res.data.redirect_url : toastMessage(res.data.alertMsg, 'danger');
       console.log(res);
+
 
 
     });

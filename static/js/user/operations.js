@@ -83,19 +83,20 @@ function prependWorkCard(arrayOfObjects) {
         } 
  
         $('#work-card-div').prepend(`
-            <div class="w-full p-2 bg-white border border-gray-300 rounded-2xl shadow-xl dark:shadow-gray-900 dark:bg-gray-800 dark:border-gray-700">
+            <div class="w-full px-2 py-1 bg-white border border-gray-300 rounded-2xl shadow-xl dark:shadow-gray-900 dark:bg-gray-800 dark:border-gray-700">
                 <div class="flex justify-between w-full">
-                    <div class=" w-full">
-                        <img class="" src="/static/media/work/plough.png" alt="image" /> 
+                    <div class="flex w-full">
+                        <img class="mr-2 h-10" src="/static/media/work/plough.png" alt="image" /> 
+                        <div class="my-auto">
+                            <h5 class="text-xl font-semibold tracking-tight truncate text-gray-900 dark:text-white">${w.work_heading}</h5>
+                        </div>
                     </div>
                     <div class="flex justify-end space-x-3 w-full ">
                     ${(receipt_array.length !== 0) ? `<span onclick="fetchDocument('${w.work_heading}', '${receipt_array[0]}')" class="flex justify-end material-symbols-outlined align-middle text-slate-900 dark:text-white" style="font-variation-settings: 'opsz' 20; text-size: 15px !important;"> receipt_long </span>` : ``} 
                         <span class="flex justify-end material-symbols-outlined align-middle text-slate-900 dark:text-white" style="font-variation-settings: 'opsz' 20; text-size: 15px !important;"> edit </span>
+                        <span class="flex justify-end material-symbols-outlined align-middle text-red-600 dark:text-red-600" style="font-variation-settings: 'opsz' 20; text-size: 15px !important;"> delete_forever </span>
                     </div> 
-                </div>
-                <a>
-                    <h5 class="mb-2 text-xl font-semibold tracking-tight text-gray-900 dark:text-white">${w.work_heading}</h5>
-                </a>
+                </div> 
                 <p class="mb-3 font-normal text-slate-700 dark:text-slate-400 line-clamp-1">${w.work_desc}</p>
                 <div class="flex justify-between w-full">
                     <div class=" w-full">  

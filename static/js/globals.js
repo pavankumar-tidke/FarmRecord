@@ -267,7 +267,7 @@ function toastMessage(message='message_not_given', type='red', id=rnum()) {
 }
 
 
-// toastMessage('This is a success message', 'success'); 
+toastMessage('This is a success message', 'success'); 
 
 
 
