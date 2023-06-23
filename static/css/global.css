@@ -113,3 +113,8 @@
 .animate-alert_topToBottom {
   animation: topToBottom 0.5s ease-in forwards;
 }
+
+
+.small-icon {
+  font-size: 18px !important;
+}
