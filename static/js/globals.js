@@ -280,7 +280,7 @@ toastMessage('This is a success message', 'success');
 function modal(div=null, id=rnum()) {
   try {
     let a = `
-        <div class="mb-10" id="bottom-modal-id-${id}">
+        <div class="mb-10 overflow-y-auto" id="bottom-modal-id-${id}">
           ${div}
         </div>
     `;

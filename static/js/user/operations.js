@@ -94,8 +94,8 @@ function e_w_f_submit() {
             console.log(res);
             if(status && res.success) { 
                 $('#e_w_btn').removeClass('opacity-50').attr('disabled', false).html('Edit Work') 
-                toastMessage(res.data.alertMsg, 'success')
-                console.log(files);
+                toastMessage(res.data.alertMsg, 'success');
+                viewWork();
             } else {
                 $('#e_w_btn_form')[0].reset();
                 $('#e_w_btn').removeClass('opacity-50').attr('disabled', false).html('Edit Work') 
