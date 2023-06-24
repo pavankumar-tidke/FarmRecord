@@ -1,6 +1,7 @@
 
 credentials.json
 git.sh
+run.sh
 ngrok.exe
 send_me.py
 start.py
