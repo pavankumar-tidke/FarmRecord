@@ -1,3 +1,17 @@
+
+credentials.json
+git.sh
+ngrok.exe
+send_me.py
+start.py
+tcp.py
+wh.py
+others.txt
+
+
+
+
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]

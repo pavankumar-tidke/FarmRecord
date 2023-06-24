@@ -25,3 +25,4 @@ $(`#${urlPathName}`).addClass('!text-sky-600');
 $(`.bottom-nav #${urlPathName}`).addClass('!text-sky-500');
 // $(`.bottom-nav #${urlPathName} span`).addClass('!text-blue-400');
 
+

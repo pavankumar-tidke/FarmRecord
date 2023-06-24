@@ -121,7 +121,7 @@ function d_w(workid, work_id) {
     setTimeout(() => { 
         $(`#card-id-${work_id}`).remove();
         // modal(div);
-    }, 200)
+    }, 300)
     transporter('POST', '/dw/', form, true, (status, res) => {
         console.log(res);
         if(status && res.success) {  

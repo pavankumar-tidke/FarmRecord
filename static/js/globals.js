@@ -285,6 +285,9 @@ function modal(div=null, id=rnum()) {
         </div>
     `;
 
+    $(window).on("popstate", function(event) { 
+      $(`#bottom-modal-id-${id}`).remove();
+    });
           
     $('#base-bottom-popup').removeClass('hidden animate-topToBottom').addClass('animate-bottomToTop')   
     $('#bottom-popup').append(a); 
