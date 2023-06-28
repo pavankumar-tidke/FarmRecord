@@ -9,14 +9,16 @@ import AddWork from './pages/user/AddWork/Index';
 function App() {
   return (
     <Router>
-      <div className="App"> 
+      <div className="App min-h-screen bg-white dark:bg-slate-900 overflow-y-hidden"> 
         <TopNav />
-        <Routes>
-          <Route path="/" element={<Dashboard />} /> 
-          <Route path="/dashboard" element={<Dashboard />} /> 
-          <Route path="/aw" element={<AddWork />} /> 
-          <Route path="/vw" element={<ViewWork />} /> 
-        </Routes>
+        <div className="px-2 ">
+          <Routes>
+            <Route path="/" element={<Dashboard />} /> 
+            <Route path="/dashboard" element={<Dashboard />} /> 
+            <Route path="/aw" element={<AddWork />} /> 
+            <Route path="/vw" element={<ViewWork />} /> 
+          </Routes>
+        </div>
         <BottomNavbar />
       </div> 
     </Router>

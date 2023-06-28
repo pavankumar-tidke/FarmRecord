@@ -4,10 +4,11 @@ const Index = () => {
     
   return (
     <div className="mb-20">
-        <h5 className="text-xl font-semibold mt-4 mb-8 text-center text-slate-900 dark:text-white">Add Today's work </h5>
-        
-        <div id="a-w-c-container" className="relative space-y-1 w-full rounded-2xl drop-shadow-lg mt-5"> 
-            <div id="a-w-c-1" className="rounded-2xl p-2 dark:bg-slate-800 drop-shadow-lg">   
+         <div className=" w-full my-4">
+            <h5 className="text-xl font-semibold text-slate-900 dark:text-white">Add Work</h5>
+        </div>
+         
+        <div id="a-w-c-1" className="rounded-2xl p-1 dark:bg-slate-800 drop-shadow-lg">   
             <form id="r_w_btn_form" className="grid lg:grid-cols-5 md:grid-cols-3 sm:grid-cols-1 gap-2  rounded-lg p-2 w-full  border border-slate-500 "> 
                 <div className="w-full">
                     <label htmlFor="work_heading" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Work Heading</label>
@@ -15,7 +16,7 @@ const Index = () => {
                 </div> 
                 <div className="w-full">
                     <label htmlFor="work_desc" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Work Description</label>
-                    <textarea id="work_desc" rows="4" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="First favarni"  required></textarea>
+                    <textarea id="work_desc" rows="4" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg   block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white" placeholder="First favarni"  required></textarea>
                 </div> 
                 <div className="w-full">
                     <label htmlFor="work_amount" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Work Amount</label>
@@ -42,8 +43,7 @@ const Index = () => {
                 </button>
                 </div>  
             </form>  
-            </div>
-        </div>
+        </div> 
     </div>
 
   );
