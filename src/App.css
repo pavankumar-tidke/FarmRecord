@@ -1,38 +1,125 @@
-.App {
-  text-align: center;
-}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+@keyframes rightToLeft {
+  0% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+@keyframes leftToRight {
+  0% {
+    transform: translateX(0);
+    opacity: 0;
   }
-  to {
-    transform: rotate(360deg);
+  100% {
+    transform: translateX(100%);
+    opacity: 1;
   }
 }
+
+@keyframes bottomToTop {
+  0% {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes topToBottom {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+}
+@keyframes alert_bottomToTop {
+  0% {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes alert_topToBottom {
+  0% {
+    transform: translateY(0);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(100%);
+    opacity: 1;
+  }
+}
+
+@keyframes slideIn {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideOut {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-100%);
+  }
+}
+
+.animation-alert {
+  animation: slideIn 0.2s ease-out forwards;
+}
+
+.animation-hide {
+  animation: slideOut 0.2s ease-in forwards 2s;
+}
+
+ 
+
+.animate-rightToLeft {
+  animation: rightToLeft 0.3s ease-out forwards;
+}
+
+.animate-leftToRight {
+  animation: leftToRight 0.2s ease-out forwards;
+}
+
+.animate-bottomToTop {
+  animation: bottomToTop 0.5s ease-out forwards;
+}
+
+.animate-topToBottom {
+  animation: topToBottom 0.5s ease-out forwards;
+}
+.animate-alert_bottomToTop {
+  animation: bottomToTop 0.5s ease-out forwards;
+}
+
+.animate-alert_topToBottom {
+  animation: topToBottom 0.5s ease-in forwards;
+}
+
+
+.small-icon {
+  font-size: 18px !important;
+}
+

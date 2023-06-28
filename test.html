@@ -1,0 +1,46 @@
+<div class="breadcrumb lg drop-shadow-xl sticky top-0 py-1 border-b-[1px] border-gray-500 bg-slate-50 dark:bg-slate-800 z-30 "> 
+    <nav class="flex justify-between backdrop-blur-lg pt-1 px-2 text-gray-700 w-full rounded-lg sm:flex sm:px-2 "  aria-label="Breadcrumb" >
+      <div class="inline-flex space-x-1 md:space-x-3 w-full sm:mb-0">
+        <div class=" text-base font-sm text-white flex">
+            
+          <div class="w-full"> 
+            <div class="flex justify-between py-1 w-full">
+
+              <div class="flex"> 
+                <a onclick="window.history.back()" class="mr-1 text-slate-900 dark:text-white text-sm align-middle my-auto"><span class="material-symbols-outlined align-middle" style="font-variation-settings: 'opsz' 20; text-size: 15px !important;"> arrow_back </span></a> 
+                <span class="space-x-1 text-lg font-semibold">test path</span>
+              </div>
+
+               
+
+            </div> 
+          </div>  
+        </div>
+      </div>
+      <div class="flex text-white">
+        <div class="flex space-x-3">
+          <span class="material-symbols-outlined align-middle text-slate-900 dark:text-white" style="font-variation-settings: 'opsz' 20; text-size: 15px !important;"> add </span>
+          <span id="dropdownMenuIconButton" data-dropdown-toggle="moreOptions" class="material-symbols-outlined align-middle text-slate-900 dark:text-white" style="font-variation-settings: 'opsz' 20; text-size: 15px !important;"> more_vert </span>
+
+          <!-- Dropdown menu -->
+          <div id="moreOptions" class="z-10 px-2 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 dark:divide-gray-600">
+            <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownMenuIconButton">
+              <li>
+                <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Dashboard</a>
+              </li>
+              <li>
+                <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Settings</a>
+              </li>
+              <li>
+                <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Earnings</a>
+              </li>
+            </ul>
+            <div class="py-2 flex ">
+              <span class="material-symbols-outlined my-auto mr-2 align-middle text-red-600 dark:text-red-600" style="font-variation-settings: 'opsz' 20; text-size: 15px !important;"> logout </span>
+              <a href="/auth/userlogout/" class="block py-2 font-bold text-sm text-red-600 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-red-600 dark:hover:text-white">Log Out</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>  
+  </div>
