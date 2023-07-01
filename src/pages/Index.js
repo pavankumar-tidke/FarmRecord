@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Route, Routes, useLocation } from 'react-router-dom'; 
-import BottomNavbar from '../components/BottomNavbar'; 
+import BottomNav from '../components/BottomNav'; 
 import TopNav from '../components/TopNav';
 import Dashboard from './user/Dashboard/Index';
 import ViewWork from './user/ViewWork/Index';
@@ -22,9 +22,7 @@ const Index = () => {
         const pageTitle = pageTitleMap[loc.pathname] || 'Else Title';
         return pageTitle;
         };
-        
-        console.log(loc.pathname);
-
+          
         setPageTitle(getPageTitle());
     }, [loc.pathname]);
     
@@ -40,7 +38,7 @@ const Index = () => {
             <Route path="/vw" element={<ViewWork />} /> 
             </Routes>
         </div>
-    <BottomNavbar />
+    <BottomNav />
     </>
   )
 }
