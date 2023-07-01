@@ -1,30 +1,15 @@
-import React, { useEffect, useState } from 'react'
-import { Link, useLocation } from "react-router-dom"; 
+import React from 'react'
+import { Link } from "react-router-dom"; 
 import ThemeToggle from './ThemeToggle';
 import DropdownFunctionality from '../utils/DropdownFunctionality';
+import SearchIconVisibility from '../utils/SearchIconVisibility';
 
 function TopNav(props) {
 
-    const loc = useLocation();
     const { isOpen, toggleDropdown, handleItemClick, dropdownRef } = DropdownFunctionality();
-    const [searchIcon, setSearchIcon] = useState(false);    
+    const { searchIcon } = SearchIconVisibility();
     
-    //  write a code to hide search icon on all pages except VIewWork page
-    useEffect(() => {
-        const getPageTitle = () => {
-            const pageTitleMap = {
-                '/vw': true,
-            };
-
-            const pageTitle = pageTitleMap[loc.pathname] || true;
-            return pageTitle;
-        };
-
-        setSearchIcon(getPageTitle());
-    }, [loc.pathname]);
-
-    
-    
+ 
   return (
     <div className="breadcrumb lg drop-shadow-lg fixed w-full top-0 py-1 border-b-[1px] border-gray-500 bg-slate-50 dark:bg-slate-800 z-30">
         <nav className="flex justify-between backdrop-blur-lg px-2 py-2 text-gray-700 w-full rounded-lg sm:flex sm:px-2" aria-label="Breadcrumb">
@@ -57,7 +42,9 @@ function TopNav(props) {
                 <div  ref={dropdownRef} className={` z-10 px-2 ${(isOpen) ? '' : 'hidden'} absolute top-7 right-1 inline-flex ease-in-out transition-all duration-200 bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 dark:divide-gray-600`} aria-orientation="vertical">
                     <ul className="py-2 text-sm text-gray-700 dark:text-gray-200">
                         <li onClick={handleItemClick}>
-                            <Link role="button" to="/aw" className="block px-4 py-2">Dashboard</Link>
+                            <Link role="button" to="/dashboard" className="block font-semibold px-4 py-2">Dashboard</Link>
+                            <Link role="button" to="/aw" className="block font-semibold px-4 py-2">Add Work</Link>
+                            <Link role="button" to="/vw" className="block font-semibold px-4 py-2">View Work</Link>
                         </li>  
                     </ul> 
                 </div>
