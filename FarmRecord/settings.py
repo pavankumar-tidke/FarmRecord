@@ -35,8 +35,8 @@ ALLOWED_HOSTS = ['*', '.vercel.app', '.netlify.app', '.now.sh', '.ngrok.io', '0.
 
 CORS_ORIGIN_ALLOW_ALL = True
 
+    # 'http://localhost:3000',  
 CORS_ORIGIN_WHITELIST = [
-    'http://localhost:3000',  
     'https://farmrecord.vercel.app'
 ]
 
