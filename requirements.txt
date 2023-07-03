@@ -1,6 +1,7 @@
 django
 djongo 
 faker
+pytz
 argon2-cffi
 Pillow 
 numpy
