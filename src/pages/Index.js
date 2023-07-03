@@ -4,7 +4,8 @@ import BottomNav from '../components/BottomNav';
 import TopNav from '../components/TopNav';
 import Dashboard from './user/Dashboard/Index';
 import ViewWork from './user/ViewWork/Index';
-import AddWork from './user/AddWork/Index'; 
+import AddWork from './user/AddWork/Index';
+import Testing from './user/Test/Index';
 
 const Index = () => {
 
@@ -32,10 +33,11 @@ const Index = () => {
     <TopNav pageTitle={pageTitle} />
         <div className="px-2 pt-12 overflow-y-hidden">
             <Routes>
-            <Route path="/" element={<Dashboard />} /> 
-            <Route path="/dashboard" element={<Dashboard />} /> 
-            <Route path="/aw" element={<AddWork />} /> 
-            <Route path="/vw" element={<ViewWork />} /> 
+                <Route path="/test" element={<Testing />} /> 
+                <Route path="/" element={<Dashboard />} /> 
+                <Route path="/dashboard" element={<Dashboard />} /> 
+                <Route path="/aw" element={<AddWork />} /> 
+                <Route path="/vw" element={<ViewWork />} /> 
             </Routes>
         </div>
     <BottomNav />
