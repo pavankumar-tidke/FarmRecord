@@ -1,4 +1,6 @@
-django 
+django
+djongo
+pymongo==3.12.3 
 faker
 argon2-cffi
 Pillow

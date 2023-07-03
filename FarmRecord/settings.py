@@ -33,6 +33,12 @@ DEBUG = True
 ALLOWED_HOSTS = ['*', '.vercel.app', '.now.sh', '.ngrok.io', '0.tcp.in.ngrok.io', '192.168.1.7', '100.73.211.179']
 
 
+CORS_ORIGIN_ALLOW_ALL = True
+
+CORS_ORIGIN_WHITELIST = [
+    'http://localhost:3000',  
+]
+
 # Application definition
 
 INSTALLED_APPS = [
@@ -42,6 +48,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'corsheaders',
     'Auth',
     'Field',
 ]
@@ -54,6 +61,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
 ]
 
 ROOT_URLCONF = 'FarmRecord.urls'
@@ -88,16 +96,37 @@ DATABASES = {
     #     'PASSWORD': 'pgadmin',
     #     'HOST': 'localhost',   
     # },
+    # 'default': {
+    #     'ENGINE': 'django.db.backends.postgresql',
+    #     'NAME': 'FarmRecord',
+    #     'USER': 'postgres',
+    #     'PASSWORD': 'pgadmin',
+    #     'HOST': '0.tcp.in.ngrok.io',
+    #     'PORT': os.environ.get('NGROK_DB_PORT'),
+    # }, 
+    
+    # mongodb
+    # 'default': {
+    #     'ENGINE': 'djongo',
+    #     'NAME': 'FarmRecord',
+    #     'CLIENT': {
+    #         'host': 'localhost',
+    #         'port': 27017,
+    #     } 
+    # }
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
+        'ENGINE': 'djongo',
         'NAME': 'FarmRecord',
-        'USER': 'postgres',
-        'PASSWORD': 'pgadmin',
-        'HOST': '0.tcp.in.ngrok.io',
-        'PORT': os.environ.get('NGROK_DB_PORT'),
-    }, 
+        'ENFORCE_SCHEMA': False,
+        'CLIENT': {
+            'host': 'mongodb+srv://pavankumartidke12345:Xs1yO4z24cLXhc6P@farmcluster.3vh3nss.mongodb.net/'
+        }  
+    }
 }
 
+# mongodb
+# pavankumartidke12345
+# Xs1yO4z24cLXhc6P
 
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators

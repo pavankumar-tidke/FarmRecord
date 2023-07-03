@@ -70,28 +70,21 @@ def save_file(file):
 
 @csrf_exempt
 def save_work(request) :
-    try:   
-        work_heading = request.POST.get('work_heading')
-        files = request.FILES.getlist('work_reciept')     
-        work_id = g.randID()
-        work_reciept = []
+    try:    
+        data = json.loads(request.body) 
+        work_id = g.randID() 
+        
+        # work_heading = request.POST.get('work_heading') 
 
-        user_id = g.getUserSession(request, g.session_name)['id'] 
-          
-        for file in files :  
-            newFileName = fs.save(f'./user_id_{user_id}/work_title_{work_heading}/' + file.name, file)
-            work_reciept.append(os.path.basename(newFileName))                    
-            
-            
+        # user_id = g.getUserSession(request, g.session_name)['id'] 
+                               
         Work.objects.create(
-            work_id=work_id,
-            work_reciept=work_reciept, 
-            work_heading=work_heading, 
-            work_desc=request.POST.get('work_desc'), 
-            work_location=request.POST.get('work_location'), 
-            work_amount=request.POST.get('work_amount'), 
-            added_at=request.POST.get('currTime'),
-            MUser_id=user_id
+            work_id=work_id, 
+            work_heading=data.get('workHeading'), 
+            work_desc=data.get('workDescription'), 
+            work_location=data.get('workLocation'), 
+            work_amount=data.get('workAmount'), 
+            added_at=data.get('addedAt'),
         )
 
         return HttpResponse(json.dumps({'success': True, 'data': {'alertMsg': 'Work Saved !'}}))
@@ -141,7 +134,8 @@ def edit_work(request) :
 @csrf_exempt
 def delete_work(request) :
     try:   
-        workid = request.POST.get('workid')
+        data = json.loads(request.body) 
+        workid = data.get('pk')
         w = Work.objects.get(id=workid)
         w.delete()
         
@@ -155,9 +149,9 @@ def delete_work(request) :
 @csrf_exempt
 def view_all_work(request) :
 
-    user_id = request.POST.get('user_id')
-    querySet = Work.objects.filter(MUser=user_id) 
-    data = serialize('json', querySet)
+    # user_id = request.POST.get('user_id')
+    querySet = Work.objects.all()  
+    data = serialize('json', querySet) 
     
     return JsonResponse(data, safe=False)
     

@@ -2,7 +2,7 @@ from django.urls import path
 from . import views
 
 
-#URLConf
+
 urlpatterns = [
     
     # rendering Page routes
@@ -11,7 +11,7 @@ urlpatterns = [
     path(route='aw/', view=views.add_work_view, name='aw'),
     path(route='vw/', view=views.all_work_disply, name='vw'),
     
-    # functionality routes    
+    ## functionality routes    
     path(route='sw/', view=views.save_work, name='aw'),
     path(route='ew/', view=views.edit_work, name='ew'),
     path(route='dw/', view=views.delete_work, name='dw'),
