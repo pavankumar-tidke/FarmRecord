@@ -19,30 +19,7 @@ def index_view(request) :
 
 
 ################################################### backend functionality goes here  ######################################################################
-
-def save_file(file):
-    try:
-        # Get the file name
-        file_name = file.name
-
-        # Define the path to the upload folder
-        upload_folder = 'path/to/upload/folder'
-
-        # Create the full file path
-        file_path = os.path.join(upload_folder, file_name)
-
-        # Save the file to the upload folder
-        with open(file_path, 'wb') as destination:
-            for chunk in file.chunks():
-                destination.write(chunk)
-
-        # Return True to indicate successful file saving
-        return True
-    
-    except Exception as e:
-        # Handle any exceptions and return False to indicate file saving failure
-        return False
-
+ 
 @csrf_exempt
 def save_work(request) :
     try:    
@@ -122,16 +99,15 @@ def delete_work(request) :
     
 
 @csrf_exempt
-def view_all_work(request) :
+def view_all_work(request):
+    try:
+        querySet = Work.objects.all()
+        data = serialize('json', querySet)
 
-    # user_id = request.POST.get('user_id')
-    querySet = Work.objects.all()  
-    data = serialize('json', querySet) 
-    
-    return JsonResponse(data, safe=False)
-    
-    # return HttpResponse(json.dumps({'success': True, 'data': {'alertMsg': 'Work Saved !', 'all_work': all_work}}))
+        return JsonResponse(data, safe=False)
 
-
+    except Exception as e:
+        print('vaw Exception --> ', e)
+        return HttpResponse(json.dumps({'success': False, 'data': {'alertMsg': 'Exception !'}}))
 
 

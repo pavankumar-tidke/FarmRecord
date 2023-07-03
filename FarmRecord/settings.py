@@ -33,12 +33,12 @@ DEBUG = True
 ALLOWED_HOSTS = ['*', '.vercel.app', '.netlify.app', '.now.sh', '.ngrok.io', '0.tcp.in.ngrok.io', '192.168.1.7', '100.73.211.179']
 
 
-# CORS_ORIGIN_ALLOW_ALL = True
+CORS_ORIGIN_ALLOW_ALL = True
 
     # 'http://localhost:3000',  
-# CORS_ORIGIN_WHITELIST = [
-#     'https://farmrecord.vercel.app'
-# ]
+CORS_ORIGIN_WHITELIST = [
+    'https://farmrecord.vercel.app'
+]
 
 # Application definition
 
@@ -117,7 +117,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'djongo',
         'NAME': 'FarmRecord',
-        'ENFORCE_SCHEMA': False,
+        # 'ENFORCE_SCHEMA': False,
         'CLIENT': {
             'host': 'mongodb+srv://pavankumartidke12345:Xs1yO4z24cLXhc6P@farmcluster.3vh3nss.mongodb.net/'
         }  
