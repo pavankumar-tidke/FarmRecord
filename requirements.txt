@@ -2,6 +2,7 @@ django
 faker 
 argon2-cffi
 Pillow 
+pytz
 numpy
 typesense
 python-dotenv
