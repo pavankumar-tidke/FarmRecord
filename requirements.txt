@@ -1,7 +1,5 @@
-django
-djongo 
-faker
-pytz
+django 
+faker 
 argon2-cffi
 Pillow 
 numpy
