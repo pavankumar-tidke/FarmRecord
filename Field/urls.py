@@ -6,8 +6,7 @@ from . import views
 urlpatterns = [
     
     # rendering Page routes
-    path(route='', view=views.index_view, name=''),
-    path(route='vw/', view=views.all_work_disply, name='vw'),
+    path(route='', view=views.index_view, name=''), 
     
     ## functionality routes    
     path(route='sw/', view=views.save_work, name='aw'),
