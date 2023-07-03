@@ -13,10 +13,7 @@ g = GLOBALS()
 
 # dashboard page view
 @csrf_exempt
-def index_view(request) :
-    if (g.session_name not in request.session) :
-        return redirect('/auth')
-    
+def index_view(request) : 
     return render(request, 'pages/index.html')
  
 
