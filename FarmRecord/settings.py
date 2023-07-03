@@ -89,6 +89,14 @@ WSGI_APPLICATION = 'FarmRecord.wsgi.application'
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
 DATABASES = {
+    'default': {
+        'ENGINE': 'djongo',
+        'NAME': 'FarmRecord',
+        # 'ENFORCE_SCHEMA': False,
+        'CLIENT': {
+            'host': f"mongodb+srv://pavankumartidke12345:{os.environ.get('MONGODB_PASS')}@farmcluster.3vh3nss.mongodb.net/"
+        }  
+    }
     # 'default': {
     #     'ENGINE': 'django.db.backends.postgresql',
     #     'NAME': 'FarmRecord',
@@ -114,19 +122,10 @@ DATABASES = {
     #         'port': 27017,
     #     } 
     # }
-    'default': {
-        'ENGINE': 'djongo',
-        'NAME': 'FarmRecord',
-        # 'ENFORCE_SCHEMA': False,
-        'CLIENT': {
-            'host': 'mongodb+srv://pavankumartidke12345:Xs1yO4z24cLXhc6P@farmcluster.3vh3nss.mongodb.net/'
-        }  
-    }
+    
 }
 
-# mongodb
-# pavankumartidke12345
-# Xs1yO4z24cLXhc6P
+
 
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
