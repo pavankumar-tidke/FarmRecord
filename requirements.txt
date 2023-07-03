@@ -1,11 +1,9 @@
 django
 djongo
-pymongo==3.12.3 
-pytz
+pymongo==3.12.3  
 faker
 argon2-cffi
-Pillow
-psycopg2-binary==2.9.5 
+Pillow 
 numpy
 typesense
 python-dotenv
