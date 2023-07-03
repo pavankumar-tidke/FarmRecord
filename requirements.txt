@@ -7,3 +7,4 @@ numpy
 typesense
 python-dotenv
 django-cors-headers
+pytz
