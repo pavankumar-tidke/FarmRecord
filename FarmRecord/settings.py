@@ -37,7 +37,7 @@ CORS_ORIGIN_ALLOW_ALL = True
 
     # 'http://localhost:3000',  
 CORS_ORIGIN_WHITELIST = [
-    'https://farmrecord.vercel.app'
+    'https://farmrecord.netlify.app'
 ]
 
 # Application definition
