@@ -20,7 +20,7 @@ const Index = () => {
         };
         
         const pageTitle = pageTitleMap[loc.pathname] || 'Else Title';
-        return pageTitle;
+            return pageTitle;
         };
           
         setPageTitle(getPageTitle());
