@@ -1,7 +1,7 @@
 django 
 djongo
 sqlparse==0.2.4
-pymongo
+pymongo==3.12.3
 faker 
 argon2-cffi
 Pillow 
