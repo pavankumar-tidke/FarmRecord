@@ -37,6 +37,7 @@ CORS_ORIGIN_ALLOW_ALL = True
 
     # 'http://localhost:3000',  
 CORS_ORIGIN_WHITELIST = [
+    '103.208.71.47',
     'https://farmrecord.netlify.app'
 ]
 
