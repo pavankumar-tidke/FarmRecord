@@ -3,6 +3,7 @@ djongo
 sqlparse==0.2.4
 pymongo==3.12.3
 pymongo[srv]    
+dnspython
 faker 
 argon2-cffi
 Pillow 
