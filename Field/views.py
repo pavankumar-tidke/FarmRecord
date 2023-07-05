@@ -108,6 +108,6 @@ def view_all_work(request):
 
     except Exception as e:
         print('vaw Exception --> ', e)
-        return HttpResponse(json.dumps({'success': False, 'data': {'alertMsg': 'Exception !'}}))
+        return JsonResponse({'success': False, 'data': {'alertMsg': 'Exception!', 'exception': str(e)}})
 
 
