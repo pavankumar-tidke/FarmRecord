@@ -89,14 +89,14 @@ WSGI_APPLICATION = 'FarmRecord.wsgi.application'
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'djongo',
-        'NAME': 'FarmRecord',
-        # 'ENFORCE_SCHEMA': False,
-        'CLIENT': {
-            'host': f"mongodb+srv://pavankumartidke12345:{os.environ.get('MONGODB_PASS')}@farmcluster.3vh3nss.mongodb.net/"
-        }  
-    }
+    # 'default': {
+    #     'ENGINE': 'djongo',
+    #     'NAME': 'FarmRecord',
+    #     # 'ENFORCE_SCHEMA': False,
+    #     'CLIENT': {
+    #         'host': f"mongodb+srv://pavankumartidke12345:{os.environ.get('MONGODB_PASS')}@farmcluster.3vh3nss.mongodb.net/"
+    #     }  
+    # }
     # 'default': {
     #     'ENGINE': 'django.db.backends.postgresql',
     #     'NAME': 'FarmRecord',
