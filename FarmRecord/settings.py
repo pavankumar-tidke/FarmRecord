@@ -36,8 +36,7 @@ ALLOWED_HOSTS = ['*', '.onrender.com', '.netlify.app', '.now.sh', '.ngrok.io', '
 CORS_ORIGIN_ALLOW_ALL = True
 
     # 'http://localhost:3000',  
-CORS_ORIGIN_WHITELIST = [
-    '103.208.71.47',
+CORS_ORIGIN_WHITELIST = [ 
     'https://farmrecord.netlify.app'
 ]
 

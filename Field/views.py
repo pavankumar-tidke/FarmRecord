@@ -53,23 +53,16 @@ def save_work(request) :
 @csrf_exempt
 def edit_work(request) :
     try:   
-        work_heading = request.POST.get('work_heading')
-        files = request.FILES.getlist('work_reciept')     
-        workid = request.POST.get('workid')
-        work_reciept = []
-
-        user_id = g.getUserSession(request, g.session_name)['id'] 
+        data = json.loads(request.body)
+        id = data.get('pk')
         
-        for file in files :  
-            newFileName = fs.save(f'./user_id_{user_id}/work_title_{work_heading}/' + file.name, file)
-            work_reciept.append(os.path.basename(newFileName))                    
-            
-        w = Work.objects.get(id=workid)
-        w.work_heading = work_heading
-        w.work_desc = request.POST.get('work_desc')
-        w.work_location = request.POST.get('work_location')
-        w.work_amount = request.POST.get('work_amount')
-        w.edited_at = request.POST.get('editTime')
+
+        w = Work.objects.get(id=id)
+        w.work_heading = data.get('workHeading')
+        w.work_desc = data.get('workDescription')
+        w.work_location = data.get('workLocation')
+        w.work_amount = data.get('workAmount')
+        w.edited_at = data.get('editedAt')
                 
         w.save()
         
