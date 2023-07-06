@@ -1,15 +1,17 @@
-import React from "react";
+import React, {  } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import ThemeToggle from "./ThemeToggle";
 import DropdownFunctionality from "../utils/DropdownFunctionality";
 import SearchIconVisibility from "../utils/SearchIconVisibility";
+ 
 
 function TopNav(props) {
-  const { isOpen, toggleDropdown, handleItemClick, dropdownRef } =
-    DropdownFunctionality();
+  const { isOpen, toggleDropdown, handleItemClick, dropdownRef } = DropdownFunctionality();
+
   const { searchIcon } = SearchIconVisibility();
- 
+  
+  
   
   return (
     <motion.div 
@@ -54,8 +56,8 @@ function TopNav(props) {
           
           {/* Theme toggle */}
           {searchIcon && (
-            <span
-              id="dropdownMenuIconButton"
+            <span 
+              // onClick={showDrawer}
               data-dropdown-toggle="moreOptions"
               className="material-symbols-outlined align-middle text-slate-900 dark:text-white"
             >

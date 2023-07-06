@@ -1,13 +1,20 @@
-import React from 'react';
+import React, { useState } from 'react';
 import CustSpin from './CustSpin';
 
-const WorkCard = ({ cardId, work, handleEdit, handleDelete, deleteLoading }) => {
+const WorkCard = ({ cardId, work, handleEdit, handleDelete }) => {
 
     
-    // const work = workd.fields;
-    
-    // console.log(work.pk);
-    
+  const [loading, setLoading] = useState(false);
+
+  const onDelete = async () => {
+    setLoading(true);
+    await handleDelete(work.pk, work.fields.work_id);
+    setLoading(false);
+  };
+
+  
+
+
   return (
     <div id={cardId} className="w-full p-2 bg-white border border-gray-300 rounded-2xl shadow-xl dark:shadow-gray-900 dark:bg-gray-800 dark:border-gray-700">
       <div className="flex justify-between">
@@ -30,19 +37,19 @@ const WorkCard = ({ cardId, work, handleEdit, handleDelete, deleteLoading }) => 
           )} */}
           
           <span
-            // onClick={() => handleEdit(work.pk, work.work_heading, work.work_desc, work.work_amount, work.work_location)}
+            onClick={() => handleEdit(work)}
             className="flex justify-end material-symbols-outlined align-middle text-blue-700 dark:text-blue-500"
             style={{ fontVariationSettings: "'opsz' 20", textSize: "15px !important" }}
           >
             edit
           </span>
           <span
-              onClick={() => handleDelete(work.pk, work.fields.work_id)}
+              onClick={onDelete}
               className="flex justify-end material-symbols-outlined align-middle text-red-600 dark:text-red-600"
               style={{ fontVariationSettings: "'opsz' 20", textSize: "15px !important" }}
             >
               {
-                deleteLoading 
+                loading 
                 ? (
                   <CustSpin /> 
 
