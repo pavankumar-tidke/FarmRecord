@@ -18,9 +18,9 @@ function BottomNavbar() {
         </Link>
         <Link
           to="/aw" 
-          className="inline-flex flex-col text-gray-500 dark:text-gray-200 rounded-lg items-center justify-center px-5 group"
+          className="inline-flex flex-col  text-white rounded-lg items-center justify-center px-5 group"
         >
-          <span className="material-symbols-outlined  bg-blue-700 rounded-full p-2">
+          <span className="material-symbols-outlined  bg-blue-600 dark:bg-blue-700 rounded-full p-2">
             add
           </span>
         </Link>

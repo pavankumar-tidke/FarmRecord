@@ -31,7 +31,7 @@ const Index = () => {
   return (
     <>
     <TopNav pageTitle={pageTitle} />
-        <div className="px-2 pt-12 overflow-y-hidden">
+        <div className="px-3 pt-12 overflow-y-hidden">
             <Routes>
                 <Route path="/test" element={<Testing />} /> 
                 <Route path="/" element={<Dashboard />} /> 

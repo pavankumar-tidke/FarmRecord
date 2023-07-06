@@ -1,12 +1,18 @@
-import React, { useRef  }  from 'react';
-import axios from 'axios';
+import React, {  useRef, useState  }  from 'react';
+import axios from 'axios';  
+import { message } from 'antd'; 
+import CustSpin from '../../../components/CustSpin';
 
 const Index = () => {
 
-    const formRef = useRef(null); 
+    const formRef = useRef(null);  
+    const [loading, setLoading] = useState(false);
+ 
   
     const handleFormSubmit = async (event) => {
         event.preventDefault();
+        setLoading(true);
+        // (loading && message.loading('Action in progress..'));
      
         const workHeading = event.target.work_heading.value;
         const workDescription = event.target.work_desc.value;
@@ -24,22 +30,30 @@ const Index = () => {
                 workLocation,
                 addedAt
             });
-            // setLoading(false); 
-            console.log(response);
-            formRef.current.reset();
-    
-        } catch (error) { 
-            // setLoading(false);
+            console.log(response); 
+            formRef.current.reset(); 
+            setLoading(false);
+            message.success(response.data.data.alertMsg);
+        
+        } catch (error) {  
             console.log(error);
+            setLoading(false); 
+            message.error(error, 5);
         }
     };
+ 
+    // message.info('This is a normal message', 1);
 
-    
-    
+    // message.loading('Action in progress..', 2.5);
+
   return (
     
     <div className="my-20"> 
 
+          
+
+        
+ 
         <div id="a-w-c-1" className="rounded-2xl p-1 dark:bg-slate-800 drop-shadow-lg">   
             <form ref={formRef} onSubmit={handleFormSubmit} id="r_w_btn_form" className="grid lg:grid-cols-5 md:grid-cols-3 sm:grid-cols-1 gap-2  rounded-lg p-2 w-full  border border-slate-500 "> 
                 <div className="w-full">
@@ -70,8 +84,19 @@ const Index = () => {
                     </label>
                 </div>   */}
                 <div className="flex justify-center mt-2  w-full"> 
-                <button type="submit" id="r_w_btn" className="bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 align-middle text-center text-base font-semibold shadow-md shadow-sky-500 px-3 py-1 bg-blue-600 text-white rounded-lg w-full">
-                    Save Work
+                <button type="submit" id="r_w_btn" className={` ${loading && 'opacity-70'} bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 align-middle text-center text-base font-semibold shadow-md shadow-sky-500 px-3 py-2 bg-blue-600 text-white rounded-lg w-full`} disabled={loading && true}>
+                      
+                      {loading ? 
+                        <span className="space-x-3 my-auto">
+                            <CustSpin color={'white'} size={15}  />
+                            <span>Saving...</span>
+                        </span>
+                      :
+                      
+                        <span>Save Work</span>
+                      
+                      }
+                       
                 </button>
                 </div>  
             </form>  

@@ -15,7 +15,7 @@ function TopNav(props) {
     <motion.div 
         initial="initial"
         animate="animate"  
-        className="breadcrumb lg drop-shadow-lg fixed w-full top-0 py-1 border-b-[1px] border-gray-500 bg-slate-50 dark:bg-slate-800 z-30">
+        className="breadcrumb lg drop-shadow-lg fixed w-full top-0 py-1 border-b-[1px] border-gray-500 bg-slate-100 dark:bg-slate-800 z-30">
       <nav
         className="flex justify-between backdrop-blur-lg px-2 py-2 text-gray-700 w-full rounded-lg sm:flex sm:px-2"
         aria-label="Breadcrumb"
@@ -34,7 +34,7 @@ function TopNav(props) {
                       arrow_back{" "}
                     </span>
                   </button>
-                  <span className="space-x-2 text-lg font-semibold">
+                  <span className="space-x-2 text-lg text-slate-950 dark:text-white font-semibold">
                     {" "}
                     {props.pageTitle}{" "}
                   </span>
