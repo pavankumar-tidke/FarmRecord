@@ -214,38 +214,41 @@ const Index = () => {
                 height={650}
               >
 
-                <div className=" w-full space-y-4">
+                <div className="w-full space-y-4">
                   <div className="flex justify-between">
                     <div className="">
                       <h5 className="text-lg font-medium text-slate-950 dark:text-white">Work Heading</h5>
-                      <h5 className="text-lg font-normal text-slate-800 dark:text-slate-300">{drawerData.fields.work_heading}</h5>
+                      <h5 className="text-base font-normal text-slate-800 dark:text-slate-300">{drawerData.fields.work_heading}</h5>
                     </div>
                   </div>
                   <div className="">
                     <h5 className="text-lg font-medium text-slate-950 dark:text-white">Work Discription</h5>
-                    <h5 className="text-lg font-normal text-slate-800 dark:text-slate-300">{drawerData.fields.work_desc}</h5>
+                    <h5 className="text-base font-normal text-slate-800 dark:text-slate-300">{drawerData.fields.work_desc}</h5>
                   </div>
                   <div className="grid grid-cols-2">
                     <div className="">
                       <h5 className="text-lg font-medium text-slate-950 dark:text-white">Work Location</h5>
-                      <h5 className="text-lg font-normal text-slate-800 dark:text-slate-300">{drawerData.fields.work_location}</h5>
+                      <h5 className="text-base font-normal text-slate-800 dark:text-slate-300">{drawerData.fields.work_location}</h5>
                     </div>
                     <div className="">
                       <h5 className="text-lg font-medium text-slate-950 dark:text-white">Total Cost</h5>
-                      <h5 className="text-lg font-normal text-slate-800 dark:text-slate-300">{drawerData.fields.work_amount}</h5>
+                      <h5 className="text-base font-normal text-slate-800 dark:text-slate-300">
+                        <span className="material-symbols-outlined small-icon align-middle text-slate-800 dark:text-slate-300">currency_rupee</span>
+                        {drawerData.fields.work_amount} /-
+                      </h5>
                     </div>
                   </div>
                   <div className="">
                     <h5 className="text-lg font-medium text-slate-950 dark:text-white">Work Date</h5>
-                    <h5 className="text-lg font-normal text-slate-800 dark:text-slate-300">{formattedDateTime(drawerData.fields.added_at)}</h5>
+                    <h5 className="text-base font-normal text-slate-800 dark:text-slate-300">{formattedDateTime(drawerData.fields.added_at)}</h5>
                   </div>
                   <div className="">
                     <h5 className="text-lg font-medium text-slate-950 dark:text-white">Work Edited On</h5>
-                    <h5 className="text-lg font-normal text-slate-800 dark:text-slate-300">{(drawerData.fields.edited_at === '-' ? '-' : formattedDateTime(drawerData.fields.edited_at))}</h5>
+                    <h5 className="text-base font-normal text-slate-800 dark:text-slate-300">{(drawerData.fields.edited_at === '-' ? '-' : formattedDateTime(drawerData.fields.edited_at))}</h5>
                   </div>
                 </div>
               
-              </BottomDrawer>
+              </BottomDrawer> 
             )
             : null}
 
