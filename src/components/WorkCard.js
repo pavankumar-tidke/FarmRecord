@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import CustSpin from './CustSpin';
 
-const WorkCard = ({ cardId, work, handleEdit, handleDelete }) => {
+const WorkCard = ({ cardId, work, handleEdit, handleDelete, viewWork }) => {
 
     
   const [loading, setLoading] = useState(false);
@@ -18,7 +18,7 @@ const WorkCard = ({ cardId, work, handleEdit, handleDelete }) => {
   return (
     <div id={cardId} className="w-full p-2 bg-white border border-gray-300 rounded-2xl shadow-xl dark:shadow-gray-900 dark:bg-gray-800 dark:border-gray-700">
       <div className="flex justify-between">
-        <div className="flex" >
+        <div onClick={() => viewWork(work)} className="flex" >
           <img className="mr-2 h-10" src={process.env.PUBLIC_URL + '/media/work/plough.png'} alt={work.fields.work_heading} />
           <div className="flex flex-col grow">
             <h5 className="text-xl font-semibold tracking-tight truncate w-[205px] overflow-hidden text-gray-900 dark:text-white">{work.fields.work_heading}</h5>
@@ -65,7 +65,7 @@ const WorkCard = ({ cardId, work, handleEdit, handleDelete }) => {
       {/* <div className="pr-5">
         <p className="my-3 text-sm font-semibold text-slate-700 dark:text-slate-400 line-clamp-1">{work.fields.work_desc}</p>
       </div> */}
-      <div className="grid grid-cols-3 border-t border-gray-500 space-x-1 w-full mt-3">  
+      <div onClick={() => viewWork(work)} className="grid grid-cols-3 border-t border-gray-500 space-x-1 w-full mt-3">  
         <h5 className="flex justify-center p-2  text-base truncate w-full font-semibold border-r border-gray-500 text-gray-900 dark:text-gray-200">
           <span className="material-symbols-outlined small-icon my-auto align-middle text-blue-700 dark:text-blue-500 mr-2" style={{ fontVariationSettings: "'opsz' 20" }}>
             currency_rupee
