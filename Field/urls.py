@@ -8,6 +8,8 @@ urlpatterns = [
     # rendering Page routes
     path(route='', view=views.index_view, name=''), 
     
+    path(route='check_connection/', view=views.check_connection, name='cc'),
+    
     ## functionality routes    
     path(route='sw/', view=views.save_work, name='aw'),
     path(route='ew/', view=views.edit_work, name='ew'),

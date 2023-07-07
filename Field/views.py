@@ -16,7 +16,14 @@ g = GLOBALS()
 def index_view(request) : 
     return render(request, 'pages/index.html')
  
-
+@csrf_exempt
+def check_connection(request) : 
+    try :
+        return JsonResponse({'success': True, 'data': {'alertMsg': 'Connection Successful !'}})
+    
+    except Exception as e:
+        print('cc Exception --> ', e)
+        return JsonResponse({'success': False, 'data': {'alertMsg': 'Connection Error'}})
 
 ################################################### backend functionality goes here  ######################################################################
  
@@ -56,7 +63,6 @@ def edit_work(request) :
         data = json.loads(request.body)
         id = data.get('pk')
         
-
         w = Work.objects.get(id=id)
         w.work_heading = data.get('workHeading')
         w.work_desc = data.get('workDescription')
