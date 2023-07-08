@@ -33,7 +33,7 @@ const Index = () => {
     const checkConnection = async () => {
         try {
             const response = await axios.post(`${process.env.REACT_APP_BACKEND_URL}/check_connection/`);
-            console.log(response);
+            // console.log(response);
             if (response.data.success) {
                 message.success(response.data.data.alertMsg);
             } else {
@@ -42,7 +42,7 @@ const Index = () => {
 
         } catch (error) {
             console.log(error);
-            message.error('Something went wrong', error);
+            message.error('Couden\'t Connect, please Refresh', 15);
         }
     };
     
