@@ -29,8 +29,7 @@ const WorkCard = ({ cardId, work, handleEdit, handleDelete, viewWork }) => {
   // };
 
 
-  const month = parseInt(work.fields.added_at.split("/")[1], 10);
-  console.log(month);
+  const month = parseInt(work.fields.added_at.split("/")[1], 10); 
   var season = (month >= 6 && month <= 10) ? "खरीप" : (month >= 11 || month <= 3) ? "रबी" : "उन्हाळी";
   var colr = (month >= 6 && month <= 10) ? "lime" : (month >= 11 || month <= 3) ? "fuchsia" : "yellow";
  
@@ -42,8 +41,8 @@ const WorkCard = ({ cardId, work, handleEdit, handleDelete, viewWork }) => {
         <div onClick={() => viewWork(work, 'view')} className="flex" >
           <img className="mr-2 h-10" src={process.env.PUBLIC_URL + '/media/work/plough.png'} alt={work.fields.work_heading} />
           <div className="flex flex-col grow">
-            <h5 className="text-xl font-semibold tracking-tight truncate w-[205px] overflow-hidden text-gray-900 dark:text-white">{work.fields.work_heading}</h5>
-            <h5 className="text-base py-2 font-semibold w-[260px] truncate text-slate-500 dark:text-slate-400 ">{work.fields.work_desc}</h5>
+            <h5 className="text-xl font-medium tracking-tight truncate w-[205px] overflow-hidden text-gray-900 dark:text-white">{work.fields.work_heading}</h5>
+            <h5 className="text-sm py-2 font-normal w-[260px] truncate text-slate-500 dark:text-slate-400 ">{work.fields.work_desc}</h5>
           </div>
         </div>
         <div className="flex justify-end space-x-3 w-full">
