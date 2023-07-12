@@ -128,7 +128,7 @@ const Index = () => {
  
             
             <div>
-                <div className="flex justify-evenly fixed z-50 w-full py-1 dark:bg-slate-900 drop-shadow-xl">
+                <div className="flex justify-evenly fixed z-50 w-full py-2 dark:bg-slate-900 drop-shadow-xl">
                     <div
                     className={`${
                         activeTab === "Add Work"
@@ -153,7 +153,7 @@ const Index = () => {
             </div>
  
  
-            <div className='duration-300'
+            <div className='duration-300 px-3'
                 onTouchStart={handleTouchStart}
                 onTouchEnd={handleTouchEnd}
             >
@@ -191,7 +191,7 @@ const Index = () => {
                                     </label>
                                 </div>   */}
                                 <div className="flex justify-center mt-5  w-full"> 
-                                <button type="submit" id="r_w_btn" className={` ${loading && 'opacity-70'} bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 align-middle text-center text-base font-semibold shadow-md shadow-sky-500 px-3 py-2 bg-blue-600 text-white rounded-lg w-full`} disabled={loading && true}>
+                                <button type="submit" id="r_w_btn" className={` ${loading && 'opacity-70'} bg-gradient-to-r from-blue-400 to-violet-700 dark:bg-gradient-to-r dark:from-blue-600 dark:to-violet-900  align-middle text-center text-base font-bold shadow-md shadow-sky-200 px-3 py-2 text-white rounded-full w-full`} disabled={loading && true}>
                                     
                                     {loading ? 
                                         <span className="space-x-3 my-auto">
@@ -295,7 +295,7 @@ const Index = () => {
                                     </label>
                                 </div>   */}
                                 <div className="flex justify-center mt-5  w-full"> 
-                                <button type="submit" className={` ${loading && 'opacity-70'} bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 align-middle text-center text-base font-semibold shadow-md shadow-sky-500 px-3 py-2 bg-blue-600 text-white rounded-lg w-full`} disabled={loading && true}>
+                                <button type="submit" className={` ${loading && 'opacity-70'} bg-gradient-to-r from-blue-400 to-violet-700 dark:bg-gradient-to-r dark:from-blue-600 dark:to-violet-900 align-middle text-center text-base font-semibold shadow-md shadow-sky-200 px-3 py-2  text-white rounded-full w-full`} disabled={loading && true}>
                                     
                                     {loading ? 
                                         <span className="space-x-3 my-auto">

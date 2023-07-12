@@ -1,13 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import { Route, Routes, useLocation } from 'react-router-dom'; 
+import { Route, Routes, useLocation, Navigate  } from 'react-router-dom'; 
 import { message } from 'antd';
 import axios from 'axios';
 import BottomNav from '../components/BottomNav'; 
 import TopNav from '../components/TopNav';
 import Dashboard from './user/Dashboard/Index';
 import ViewWork from './user/ViewWork/Index';
-import AddWork from './user/AddWork/Index';
-import Testing from './user/Test/Index';
+import AddWork from './user/AddWork/Index'; 
 
 const Index = () => {
 
@@ -17,7 +16,7 @@ const Index = () => {
     useEffect(() => {
         const getPageTitle = () => { 
         const pageTitleMap = {
-            '/dashboard': 'Dashboard',
+            '/': 'Dashboard',
             '/aw': 'Add Work',
             '/vw': 'View Work',
         };
@@ -42,28 +41,31 @@ const Index = () => {
 
         } catch (error) {
             console.log(error);
-            message.error('Couden\'t Connect, please Refresh', 15);
+            message.error(`Couden't Connect, please Refresh, ${error}`, 5);
         }
     };
     
     useEffect(() => {  
         checkConnection();
     }, []);
+
+    // window.location.href = '/dashboard'
     
     
   return (
     <>
     <TopNav pageTitle={pageTitle} />
-        <div className="px-3 pt-12 overflow-y-hidden">
-            <Routes>
-                <Route path="/test" element={<Testing />} /> 
-                <Route path="/" element={<Dashboard />} /> 
-                <Route path="/dashboard" element={<Dashboard />} /> 
-                <Route path="/aw" element={<AddWork />} /> 
-                <Route path="/vw" element={<ViewWork />} /> 
-            </Routes>
-        </div>
-    <BottomNav />
+    <div className="pt-12 overflow-y-hidden">
+        <Routes>
+            {/* <Route path="/test" element={<Testing />} /> 
+            <Route path="/" element={<Dashboard />} />  */}
+            <Route path="*" render={() => <Navigate to="/dashboard" />} />
+            <Route path="/" element={<Dashboard />} /> 
+            <Route path="/aw" element={<AddWork />} /> 
+            <Route path="/vw" element={<ViewWork />} /> 
+        </Routes>
+    </div>
+    {loc.pathname === '/' && <BottomNav />}
     </>
   )
 }

@@ -26,9 +26,9 @@ const Index = () => {
           `${process.env.REACT_APP_BACKEND_URL}/fetch/all_work/`
         );
         let response = JSON.parse(res.data);
-        // console.log(response);
+        console.log(response);
         if (response.success) {
-          setData(response);
+          setData(response); 
           setPageLoading(false);
           message.success("Data fetched successfully");
         } else {
@@ -238,8 +238,9 @@ const Index = () => {
     }
   };
 
+
   return (
-    <div className="mb-20 mt-0.5">
+    <div className="mb-20 mt-0.5 px-3">
       {pageLoading && (
         <div className="absolute flex top-80 left-48 justify-center ">
           <CustSpin />
@@ -330,6 +331,7 @@ const Index = () => {
               </div>
             )}
           </div>
+
 
           <div>
             {drawerData.length !== 0 && drawerContent === "view" ? (
@@ -584,7 +586,7 @@ const Index = () => {
                       type="submit"
                       className={` ${
                         loading && "opacity-70"
-                      } mt-2 bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 align-middle text-center text-base font-semibold shadow-md shadow-sky-500 px-3 py-2 bg-blue-600 text-white rounded-lg w-full`}
+                      } mt-2 bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 align-middle text-center text-base font-semibold shadow-md shadow-sky-500 px-3 py-2 bg-blue-600 text-white rounded-full w-full`}
                       disabled={loading && true}
                     >
                       {loading ? (
@@ -773,7 +775,7 @@ const Index = () => {
                       type="submit"
                       className={` ${
                         loading && "opacity-70"
-                      } bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 align-middle text-center text-base font-semibold shadow-md shadow-sky-500 px-3 py-2 bg-blue-600 text-white rounded-lg w-full`}
+                      } bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 align-middle text-center text-base font-semibold shadow-md shadow-sky-500 px-3 py-2 bg-blue-600 text-white rounded-full w-full`}
                       disabled={loading && true}
                     >
                       {loading ? (

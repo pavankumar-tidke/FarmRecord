@@ -34,7 +34,7 @@ const ProdCard = ({ cardId, prod, handleEdit, handleDelete, viewWork }) => {
           alt={prod.fields.crop_name}
         />
       </div>
-      <div className="w-9/12 justify-between px-2">
+      <div className="w-9/12 justify-between p-2 ">
         <div className="w-full bg-">
           <div className="w-full ">
             <div className="flex justify-between">
@@ -45,7 +45,7 @@ const ProdCard = ({ cardId, prod, handleEdit, handleDelete, viewWork }) => {
                 <h5 className="text-xl font-semibold tracking-tight truncate overflow-hidden text-gray-900 dark:text-white">
                   {prod.fields.crop_name}
                 </h5>
-                <h5 className="text-sm py-2 font-medium w-full truncate text-slate-500 dark:text-slate-400 ">
+                <h5 className="text-sm py-2 font-medium w-[210px] truncate text-slate-500 dark:text-slate-400 ">
                   {prod.fields.crop_desc}
                 </h5>
               </div>
@@ -90,7 +90,7 @@ const ProdCard = ({ cardId, prod, handleEdit, handleDelete, viewWork }) => {
                 </div>
               </div>
             </div>
-            <div
+            {/* <div
               onClick={() => viewWork(prod, "prodview")}
               className="grid grid-cols-2 py-1 border-t border-gray-200 dark:border-gray-700 w-full "
             >
@@ -112,7 +112,7 @@ const ProdCard = ({ cardId, prod, handleEdit, handleDelete, viewWork }) => {
                 </span>
                 {prod.fields.sell_location}
               </h5>
-            </div>
+            </div> */}
           </div>
         </div>
         <div className="flex w-full">

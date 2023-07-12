@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 function BottomNavbar() {
   return (
-    <div className="bottom-nav fixed bottom-0 left-0 z-50 w-full h-16 bg-slate-100 border-t-2 rounded-tl-2xl rounded-tr-2xl border-blue-400 dark:bg-gray-700">
+    <div className="bottom-nav fixed bottom-0 left-0 z-50 w-full h-16 bg-white   rounded-tl-xl rounded-tr-xl border-blue-400 dark:bg-gray-900">
       <div className="grid h-full max-w-lg grid-cols-5 mx-auto font-medium">
         <Link
           to="/dashboard" 

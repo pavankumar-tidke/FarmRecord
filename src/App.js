@@ -11,7 +11,7 @@ function App() {
 
   return (
     <Router>
-      <div className="App min-h-screen bg-white dark:bg-slate-900 "> 
+      <div className="App min-h-screen bg-white dark:bg-slate-900 font-"> 
         <Index />
       </div> 
     </Router>

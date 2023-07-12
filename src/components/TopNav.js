@@ -17,7 +17,7 @@ function TopNav(props) {
     <motion.div 
         initial="initial"
         animate="animate"  
-        className="breadcrumb lg drop-shadow-lg fixed w-full top-0 py-1 border-b-[1px] border-gray-500 bg-slate-100 dark:bg-slate-800 z-30">
+        className="breadcrumb drop-shadow-lg fixed w-full top-0 p-1  bg-white dark:bg-slate-900 z-30">
       <nav
         className="flex justify-between backdrop-blur-lg px-2 py-2 text-gray-700 w-full rounded-lg sm:flex sm:px-2"
         aria-label="Breadcrumb"
@@ -26,19 +26,26 @@ function TopNav(props) {
           <div className="text-base font-sm text-white flex">
             <div className="w-full">
               <div className="flex justify-between w-full">
-                <div className="flex">
-                  <button
-                    onClick={() => window.history.back()}
-                    className="mr-2 text-slate-900 dark:text-white text-sm align-middle my-auto"
-                  >
-                    <span className="material-symbols-outlined align-middle">
-                      {" "}
-                      arrow_back{" "}
-                    </span>
-                  </button>
-                  <span className="space-x-2 text-lg text-slate-950 dark:text-white font-semibold">
-                    {" "}
-                    {props.pageTitle}{" "}
+                  <div className="flex">
+                 {props.pageTitle !== "Dashboard" ? (
+                    
+                    <button
+                      onClick={() => window.history.back()}
+                      className="mr-2 text-slate-900 dark:text-white text-sm align-middle my-auto"
+                    >
+                      <span className="material-symbols-outlined align-middle">  arrow_back  </span>
+                    </button>
+                  ) : (
+                    <button
+                      onClick={() => console.log('menu clicked')}
+                      className="mr-2 text-slate-900 dark:text-white text-sm align-middle my-auto"
+                    >
+                      <span className="material-symbols-outlined align-middle">  menu  </span>
+                    </button>
+                  )
+                }
+                  <span className="space-x-2 text-lg text-slate-950 dark:text-white font-semibold"> 
+                    {props.pageTitle} 
                   </span>
                 </div>
               </div>
@@ -47,12 +54,12 @@ function TopNav(props) {
         </div>
         <div className="flex relative space-x-4 my-auto text-white">
 
-        <span  
+        {/* <span  
             onClick={() => { window.location.reload(); }}
-              className="material-symbols-outlined align-middle text-slate-900 dark:text-white"
-            >
-              refresh
-            </span>
+            className="material-symbols-outlined align-middle text-slate-900 dark:text-white"
+          >
+            refresh
+          </span> */}
           
           {/* Theme toggle */}
           {searchIcon && (
@@ -64,9 +71,9 @@ function TopNav(props) {
               search
             </span>
           )}
-          <ThemeToggle />
+          {/* <ThemeToggle /> */}
 
-          <span
+          {/* <span
             onClick={() => {
               toggleDropdown();
             }}
@@ -74,7 +81,7 @@ function TopNav(props) {
             className="material-symbols-outlined align-middle relative text-slate-900 dark:text-white "
           > 
             more_vert 
-          </span>
+          </span> */}
 
           {/* Dropdown menu */}
           {/* <Dropdown color={'dark'} /> */}

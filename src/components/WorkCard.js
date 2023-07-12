@@ -86,7 +86,7 @@ const WorkCard = ({ cardId, work, handleEdit, handleDelete, viewWork }) => {
       {/* <div className="pr-5">
         <p className="my-3 text-sm font-semibold text-slate-700 dark:text-slate-400 line-clamp-1">{work.fields.work_desc}</p>
       </div> */}
-      <div onClick={() => viewWork(work, 'view')} className="grid grid-cols-3 border-t border-gray-200 dark:border-gray-700 space-x-1 w-full mt-3">  
+      {/* <div onClick={() => viewWork(work, 'view')} className="grid grid-cols-3 border-t border-gray-200 dark:border-gray-700 space-x-1 w-full mt-3">  
         <h5 className="flex justify-center p-2  text-base truncate w-full font-semibold border-r border-gray-200 dark:border-gray-700 text-gray-900 dark:text-gray-200">
           <span className="material-symbols-outlined small-icon my-auto align-middle text-blue-700 dark:text-blue-500 mr-2" style={{ fontVariationSettings: "'opsz' 20" }}>
             currency_rupee
@@ -102,7 +102,7 @@ const WorkCard = ({ cardId, work, handleEdit, handleDelete, viewWork }) => {
         <h5 className={`flex justify-center p-2 text-sm w-full tracking-widest font-semibold text-${colr}-600`}>
             <span></span> { season }
         </h5>  
-      </div>
+      </div> */}
     </div>
     
   );

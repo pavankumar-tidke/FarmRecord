@@ -26,7 +26,7 @@ const BottomDrawer = ({ open, onClose, children, height, title }) => {
             open={open}           
             className='bg-white !dark:bg-slate-800  rounded-tl-3xl rounded-tr-3xl'
         > 
-            <div className="mx-24 mb-4 rounded-full border-t-8 border-gray-400 dark:border-gray-500"> </div>
+            <div className="mx-32 mb-4 rounded-full border-t-4 border-gray-400 dark:border-gray-500"> </div>
             <div className='flex justify-between mb-5 pb-2 border-b border-gray-500'>
  
                 <div>
