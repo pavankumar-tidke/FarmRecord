@@ -76,7 +76,7 @@ const Dashboard = () => {
   
 
   return (
-    <div className="my-5">
+    <div className="mb-10">
       
       {pageLoading && (
         <div className="absolute z-50 flex top-80 left-48 justify-center ">
@@ -84,44 +84,49 @@ const Dashboard = () => {
         </div>
       )}
  
-      <div className='px-3 space-y-4 rounded-b-3xl'> 
+      <div className='px-3 space-y-4 py-5 rounded-b-[50px]'> 
  
-        <div className='text-center mx-auto mb-5'>
-          <h5 className='text-2xl font-bold text-gray-500'>Total Revenue</h5>
-          <h5 className='text-xl font-bold text-lime-600'>
-            <span className="material-symbols-outlined extra-small-icon align- text-slate-800 dark:text-slate-300">currency_rupee</span>
+        <div className='text-center mx-auto mb-8'>
+          <h5 className='text-base font-bold text-gray-600 dark:text-gray-300'>Total Revenue</h5>
+          <h5 className='text-3xl font-bold text-green-600'>
+            <span className="material-symbols-outlined extra-small-icon  text-slate-500 dark:text-slate-500">currency_rupee</span>
             { totalCropAmount } 
             <span className='ml-5 text-xs text-gray-500'>(since 2020)</span>
           </h5>
         </div>
         
-        <div className='flex justify-evenly text-center'>
+        <div className='flex justify-evenly text-center mb-6'>
           <div className=' '>
-            <h5 className='text-lg font-bold text-gray-500'>Chana Profit</h5>
+            <h5 className='text-base font-bold text-gray-600 dark:text-gray-300'>Chana Profit</h5>
             <h5 className='text-lg font-bold text-red-400'>
-              <span className="material-symbols-outlined extra-small-icon align- text-slate-800 dark:text-slate-300">currency_rupee</span>
+              <span className="material-symbols-outlined extra-small-icon  text-slate-500 dark:text-slate-500">currency_rupee</span>
               { totalChanaAmount }
             </h5>
           </div>
           <div className=' '>
-            <h5 className='text-lg font-bold text-gray-500'>Soyabin Profit</h5>
-            <h5 className='text-lg font-bold text-lime-600'>
-              <span className="material-symbols-outlined extra-small-icon align- text-slate-800 dark:text-slate-300">currency_rupee</span>
+            <h5 className='text-base font-bold text-gray-600 dark:text-gray-300'>Soyabin Profit</h5>
+            <h5 className='text-lg font-bold text-green-600'>
+              <span className="material-symbols-outlined extra-small-icon  text-slate-500 dark:text-slate-500">currency_rupee</span>
               { totalSoyaAmount }
             </h5>
           </div>
         </div>
         
       </div>
-
-      <hr className='mt-4 mx-3' />
+ 
 
       <div className='my-5'>
 
         {
-          (data !== undefined || data !== null) && (
+          (data !== undefined || data !== null) ? (
             <Graph data={data} />
-          )
+          ) : 
+            pageLoading && (
+              <div className="absolute z-50 flex top-80 left-48 justify-center ">
+                <CustSpin />
+              </div>
+            )
+          
         }
 
       </div>
