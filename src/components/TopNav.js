@@ -1,7 +1,7 @@
 import React, {  } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import ThemeToggle from "./ThemeToggle";
+// import ThemeToggle from "./ThemeToggle";
 import DropdownFunctionality from "../utils/DropdownFunctionality";
 import SearchIconVisibility from "../utils/SearchIconVisibility";
  
