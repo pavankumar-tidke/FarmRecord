@@ -206,14 +206,14 @@ const Graph = ({ data }) => {
 
 
   return (
-    <div className="p-3 space-y-4">
-      <div>
+    <div className="space-y-4">
+      <div className='p-3 backdrop-filter rounded-2xl backdrop-blur-2xl bg-white bg-opacity-5'>
         <canvas id="soyabinChart" ref={soyabinChartRef} height={250} />
       </div>
 
       {/* <hr className=' bg-gray-500' /> */}
       
-      <div>
+      <div className='p-3 backdrop-filter rounded-2xl backdrop-blur-2xl bg-white bg-opacity-5'>
         <canvas id="chanaChart" ref={chanaChartRef} height={250} />
       </div>
     </div>
