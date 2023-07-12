@@ -189,7 +189,7 @@ const Graph = ({ data }) => {
 
       setChanaChart(newChanaChart);
     }
-  }, [data?.prodWorkData, soyabinChart, chanaChart, chanaChartRef, soyabinChartRef]);
+  }, [data?.prodWorkData]);
 
 
 
