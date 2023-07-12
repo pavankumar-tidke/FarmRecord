@@ -26,7 +26,7 @@ const Graph = ({ data }) => {
       }
     });
 
-    
+
     // if (soyabinChart) {
     //   soyabinChart.destroy();
     // }
@@ -211,7 +211,7 @@ const Graph = ({ data }) => {
         <canvas id="soyabinChart" ref={soyabinChartRef} height={250} />
       </div>
 
-      <hr className=' bg-gray-500' />
+      {/* <hr className=' bg-gray-500' /> */}
       
       <div>
         <canvas id="chanaChart" ref={chanaChartRef} height={250} />

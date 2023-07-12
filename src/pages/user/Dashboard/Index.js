@@ -114,7 +114,7 @@ const Dashboard = () => {
         
       </div>
 
-      <hr className=' bg-gray-500 mt-4 mx-3' />
+      <hr className='mt-4 mx-3' />
 
       <div className='my-5'>
 
