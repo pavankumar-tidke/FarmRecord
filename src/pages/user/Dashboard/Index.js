@@ -76,7 +76,7 @@ const Dashboard = () => {
   
 
   return (
-    <div className="mb-10">
+    <div className="mb-20">
       
       {pageLoading && (
         <div className="absolute z-50 flex top-80 left-48 justify-center ">
@@ -115,7 +115,7 @@ const Dashboard = () => {
       </div>
  
 
-      <div className='my-5'>
+      <div className='mt-5 '>
 
         {
           (data !== undefined || data !== null) ? (
