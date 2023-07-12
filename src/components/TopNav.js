@@ -7,8 +7,8 @@ import SearchIconVisibility from "../utils/SearchIconVisibility";
  
 
 function TopNav(props) {
-  const { isOpen, toggleDropdown, handleItemClick, dropdownRef } = DropdownFunctionality();
-
+  const { isOpen, handleItemClick, dropdownRef } = DropdownFunctionality();
+  // toggleDropdown
   const { searchIcon } = SearchIconVisibility();
   
   

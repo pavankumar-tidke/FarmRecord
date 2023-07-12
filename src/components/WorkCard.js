@@ -29,9 +29,9 @@ const WorkCard = ({ cardId, work, handleEdit, handleDelete, viewWork }) => {
   // };
 
 
-  const month = parseInt(work.fields.added_at.split("/")[1], 10); 
-  var season = (month >= 6 && month <= 10) ? "खरीप" : (month >= 11 || month <= 3) ? "रबी" : "उन्हाळी";
-  var colr = (month >= 6 && month <= 10) ? "lime" : (month >= 11 || month <= 3) ? "fuchsia" : "yellow";
+  // const month = parseInt(work.fields.added_at.split("/")[1], 10); 
+  // var season = (month >= 6 && month <= 10) ? "खरीप" : (month >= 11 || month <= 3) ? "रबी" : "उन्हाळी";
+  // var colr = (month >= 6 && month <= 10) ? "lime" : (month >= 11 || month <= 3) ? "fuchsia" : "yellow";
  
 
 
