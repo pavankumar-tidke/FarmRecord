@@ -114,9 +114,10 @@ const Dashboard = () => {
         
       </div>
 
-      <hr className=' bg-gray-500 mt-4' />
+      <hr className=' bg-gray-500 mt-4 mx-3' />
 
       <div className='my-5'>
+
         {
           (data !== undefined || data !== null) && (
             <Graph data={data} />

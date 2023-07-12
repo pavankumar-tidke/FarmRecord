@@ -191,7 +191,7 @@ const Index = () => {
                                     </label>
                                 </div>   */}
                                 <div className="flex justify-center mt-5  w-full"> 
-                                <button type="submit" id="r_w_btn" className={` ${loading && 'opacity-70'} bg-gradient-to-r from-blue-400 to-violet-700 dark:bg-gradient-to-r dark:from-blue-600 dark:to-violet-900  align-middle text-center text-base font-bold shadow-md shadow-sky-200 px-3 py-2 text-white rounded-full w-full`} disabled={loading && true}>
+                                <button type="submit" id="r_w_btn" className={` ${loading && 'opacity-70'} bg-gradient-to-r from-blue-400 to-violet-700 dark:bg-gradient-to-r dark:from-blue-600 dark:to-violet-900  align-middle text-center text-base font-bold px-3 py-2 text-white rounded-full w-full`} disabled={loading && true}>
                                     
                                     {loading ? 
                                         <span className="space-x-3 my-auto">
@@ -295,7 +295,7 @@ const Index = () => {
                                     </label>
                                 </div>   */}
                                 <div className="flex justify-center mt-5  w-full"> 
-                                <button type="submit" className={` ${loading && 'opacity-70'} bg-gradient-to-r from-blue-400 to-violet-700 dark:bg-gradient-to-r dark:from-blue-600 dark:to-violet-900 align-middle text-center text-base font-semibold shadow-md shadow-sky-200 px-3 py-2  text-white rounded-full w-full`} disabled={loading && true}>
+                                <button type="submit" className={` ${loading && 'opacity-70'} bg-gradient-to-r from-blue-400 to-violet-700 dark:bg-gradient-to-r dark:from-blue-600 dark:to-violet-900 align-middle text-center text-base font-semibold  px-3 py-2  text-white rounded-full w-full`} disabled={loading && true}>
                                     
                                     {loading ? 
                                         <span className="space-x-3 my-auto">
