@@ -38,7 +38,7 @@ const Graph = ({ data }) => {
         labels: soyabinYears,
         datasets: [
           {
-            label: 'Cost (in K)',
+            label: 'Profit (in Thousands)',
             animation: {
               duration: 2000,
               easing: 'easeInOutQuart',
@@ -151,7 +151,7 @@ const Graph = ({ data }) => {
         labels: chanaYears,
         datasets: [
           {
-            label: 'Cost (in )',
+            label: ' Profit (in Thousands)',
             animation: {
               duration: 2000,
               easing: 'easeInOutQuart',
