@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import CustSpin from './CustSpin';  
-import { darken } from '@mui/material';
+// import { darken } from '@mui/material';
 
 const WorkCard = ({ cardId, work, handleEdit, handleDelete, viewWork }) => {
 
@@ -13,17 +13,17 @@ const WorkCard = ({ cardId, work, handleEdit, handleDelete, viewWork }) => {
     setLoading(false);
   };
 
-  const Workimage = {
-    'Plough': 'plough.png',
-    'Harrow': 'harrow.png',
-    'Seed Drill': 'seeddrill.png',
-    'Spray': 'spray.png',
-    'Harvester': 'harvester.png',
-    'Thresher': 'thresher.png',
-    'Tractor': 'tractor.png',
-    'Cultivator': 'cultivator.png',
-    'Rotavator': 'rotavator.png', 
-  };
+  // const Workimage = {
+  //   'Plough': 'plough.png',
+  //   'Harrow': 'harrow.png',
+  //   'Seed Drill': 'seeddrill.png',
+  //   'Spray': 'spray.png',
+  //   'Harvester': 'harvester.png',
+  //   'Thresher': 'thresher.png',
+  //   'Tractor': 'tractor.png',
+  //   'Cultivator': 'cultivator.png',
+  //   'Rotavator': 'rotavator.png', 
+  // };
 
 
   // const month = parseInt(work.fields.added_at.split("/")[1], 10); 
