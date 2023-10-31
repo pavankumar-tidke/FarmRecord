@@ -7,6 +7,7 @@ import TopNav from '../components/TopNav';
 import Dashboard from './user/Dashboard/Index';
 import ViewWork from './user/ViewWork/Index';
 import AddWork from './user/AddWork/Index'; 
+import Voice from './user/Voice/Index';
 
 const Index = () => {
 
@@ -19,6 +20,7 @@ const Index = () => {
             '/': 'Dashboard',
             '/aw': 'Add Work',
             '/vw': 'View Work',
+            '/voice': 'Voice Test',
         };
         
         const pageTitle = pageTitleMap[loc.pathname] || 'Else Title';
@@ -63,6 +65,7 @@ const Index = () => {
             <Route path="/" element={<Dashboard />} /> 
             <Route path="/aw" element={<AddWork />} /> 
             <Route path="/vw" element={<ViewWork />} /> 
+            <Route path="/voice" element={<Voice />} /> 
         </Routes>
     </div>
     {loc.pathname === '/' && <BottomNav />}

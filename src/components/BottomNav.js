@@ -25,10 +25,10 @@ function BottomNavbar() {
           </span>
         </Link>
         <Link
-          to="#" 
+          to="/voice" 
           className="inline-flex flex-col text-gray-500 dark:text-gray-200 rounded-lg items-center justify-center px-5  group"
         >
-          <span className="material-symbols-outlined">database</span>
+          <span className="material-symbols-outlined">mic</span>
         </Link>
         <Link
           to="#" 

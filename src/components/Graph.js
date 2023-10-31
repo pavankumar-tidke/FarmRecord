@@ -120,9 +120,6 @@ const Graph = ({ data }) => {
   }, [data?.prodWorkData]);
 
 
-
-
-
   useEffect(() => {
     // Chana chart
     const chanaYears = [];

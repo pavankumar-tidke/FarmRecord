@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import CustSpin from './CustSpin';  
+import { darken } from '@mui/material';
 
 const WorkCard = ({ cardId, work, handleEdit, handleDelete, viewWork }) => {
 
@@ -12,21 +13,17 @@ const WorkCard = ({ cardId, work, handleEdit, handleDelete, viewWork }) => {
     setLoading(false);
   };
 
-  // const image = {
-  //   'Plough': 'plough.png',
-  //   'Harrow': 'harrow.png',
-  //   'Seed Drill': 'seeddrill.png',
-  //   'Sprayer': 'sprayer.png',
-  //   'Harvester': 'harvester.png',
-  //   'Thresher': 'thresher.png',
-  //   'Tractor': 'tractor.png',
-  //   'Cultivator': 'cultivator.png',
-  //   'Rotavator': 'rotavator.png',
-  //   'Plough, Harrow': 'ploughharrow.png',
-  //   'Plough, Harrow, Seed Drill': 'ploughharrowseeddrill.png',
-  //   'Plough, Harrow, Seed Drill, Sprayer': 'ploughharrowseeddrillsprayer.png',
-  //   'Plough, Harrow, Seed Drill, Sprayer, Harvester': 'ploughharrowseeddrillsprayerharvester.png',
-  // };
+  const Workimage = {
+    'Plough': 'plough.png',
+    'Harrow': 'harrow.png',
+    'Seed Drill': 'seeddrill.png',
+    'Spray': 'spray.png',
+    'Harvester': 'harvester.png',
+    'Thresher': 'thresher.png',
+    'Tractor': 'tractor.png',
+    'Cultivator': 'cultivator.png',
+    'Rotavator': 'rotavator.png', 
+  };
 
 
   // const month = parseInt(work.fields.added_at.split("/")[1], 10); 
@@ -39,7 +36,8 @@ const WorkCard = ({ cardId, work, handleEdit, handleDelete, viewWork }) => {
     <div id={cardId} className="w-full p-2 bg-white border border-gray-300 rounded-2xl shadow-xl dark:shadow-gray-900 dark:bg-gray-800 dark:border-gray-700">
       <div className="flex justify-between">
         <div onClick={() => viewWork(work, 'view')} className="flex" >
-          <img className="mr-2 h-10" src={process.env.PUBLIC_URL + '/media/work/plough.png'} alt={work.fields.work_heading} />
+            <img className="mr-2 h-10" src={process.env.PUBLIC_URL + '/media/work/plough.png'} alt={work.fields.work_heading} /> 
+         
           <div className="flex flex-col grow">
             <h5 className="text-xl font-medium tracking-tight truncate w-[205px] overflow-hidden text-gray-900 dark:text-white">{work.fields.work_heading}</h5>
             <h5 className="text-sm py-2 font-normal w-[260px] truncate text-slate-500 dark:text-slate-400 ">{work.fields.work_desc}</h5>

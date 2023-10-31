@@ -29,7 +29,7 @@ const ProdCard = ({ cardId, prod, handleEdit, handleDelete, viewWork }) => {
     >
       <div onClick={() => viewWork(prod, "prodview")} className="w-3/12">
         <img
-          className="h-full w-full rounded-lg bg-cover"
+          className="h-full w-full rounded-l-2xl bg-cover"
           src={process.env.PUBLIC_URL + `/media/work/${selectedImage}`}
           alt={prod.fields.crop_name}
         />
