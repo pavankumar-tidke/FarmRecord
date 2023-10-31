@@ -1,6 +1,6 @@
-import React, { useState, useEffect, useRef } from 'react';
-import { BsPlayFill, BsStopFill, BsDownload } from 'react-icons/bs';
-import { saveAs } from 'file-saver';
+import React, { useState, useRef } from 'react';
+// import { BsPlayFill, BsStopFill, BsDownload } from 'react-icons/bs';
+// import { saveAs } from 'file-saver';
 import axios from 'axios';
 
 const RecordButton = () => {
@@ -45,7 +45,7 @@ const RecordButton = () => {
         const audioBlob = new Blob(chunks, { type: 'audio/webm' }); 
         console.log(chunks);
         setAudioBlob(audioBlob);
-        // sendAudioToBackend(audioBlob);
+        sendAudioToBackend(audioBlob);
         // chunks = [];
         setRecording(false);
       };
